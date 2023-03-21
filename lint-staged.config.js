@@ -1,3 +1,3 @@
 module.exports = {
-  '*.{ts,tsx}': ["bash -c 'npm run types:check'", 'npm run format:check'],
+  '*.{ts,tsx}': ['yarn lint', "bash -c 'yarn types:check'", 'yarn format:check'],
 };
