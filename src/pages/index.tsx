@@ -45,7 +45,7 @@ export default function Home() {
                 <h1 className="mb-8 text-3xl font-black tracking-tighter md:text-8xl">
                   Muhammed Shittu{' '}
                 </h1>
-                <h3 className="mb-8 text-2xl font-bold tracking-tighter md:text-5xl text-cyan-800 ">
+                <h3 className="mb-8 text-2xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
                   Full Stack Software Engineer{' '}
                 </h3>
                 <p className="mb-8  text-2xl leading-relaxed text-left">
@@ -75,6 +75,9 @@ export default function Home() {
                   className="object-cover object-center rounded-lg"
                   alt="hero"
                   src="https://dummyimage.com/600x720/F3F4F7/8693ac"
+                  width={600}
+                  height={720}
+                  priority
                 />
               </div>
             </div>
@@ -361,14 +364,12 @@ export default function Home() {
               </div>
               <div className="section-body">
                 {/* <div className="flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4"> */}
-                <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4">
+                <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl  text-cyan-800 dark:text-cyan-400">
                   {TOOLS_AND_SOFTWARES.map((tool, i) => (
                     <li key={i}>
-                      <a
-                        target="_blank"
-                        className="flex items-center font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        <span className="flex-1 ml-3 whitespace-nowrap">{tool}</span>
+                      <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
+                        {/* ${i == 0 ? 'ml-0' : 'ml-3'} */}
+                        <span className={` flex-1 whitespace-nowrap m-4`}>{tool}</span>
                       </a>
                     </li>
                   ))}
