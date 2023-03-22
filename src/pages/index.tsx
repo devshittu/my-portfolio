@@ -85,7 +85,7 @@ export default function Home() {
         </header>
 
         <section className="text-slate-700 bg-white mt-20">
-          <div className="container md:max-w-6xl  py-20 mx-auto ">
+          <div className="container md:max-w-6xl  py-24x mx-auto ">
             <div className="flex flex-col items-center md:flex-row">
               <div className="grid grid-cols-10 w-full relative gap-4 min-h-screen">
                 <aside className="col-span-2 flex flex-col top-0 left-3 sticky h-screen">
@@ -353,17 +353,111 @@ export default function Home() {
                 </main>
               </div>
             </div>
-            {/* Tools and Features */}
-            <section className="border-t border-slate-300  pt-20">
+
+            <section className="py-24">
+              <div className="flex md:flex-row flex-col justify-between">
+                <div className="section-body w-1/2">
+                  {/* 
+    border-radius: 9999px;
+    position: relative;
+    float: left;
+    margin-right: var(--chakra-space-6);
+    overflow: hidden; */}
+                  <div className=" relative float-left">
+                    <Image
+                      width={112}
+                      height={112}
+                      className="mb-0x w-28 h-28 rounded-full mr-6"
+                      src="https://dummyimage.com/128x128/F3F4F7/8693ac"
+                      alt="product designer"
+                    />
+                  </div>
+                  <h2 className="text-8xl font-extrabold">
+                    I design <span className="text-cyan-800">component systems</span>
+                  </h2>
+                </div>
+                <div className="w-5/12 text-2xl leading-relaxed">
+                  <p>
+                    An engineer with a strong design background, specializing in design systems,
+                    accessibility and interface design for digital products
+                  </p>{' '}
+                  <div className="">LinkedIn Resume</div>
+                  <div className="flex flex-col flex-wrap lg:flex-row mt-6 lg:mb-0 mb-6 w-10/12 gap-4">
+                    <a
+                      target="_blank"
+                      href="https://linkedin.com/in/muhammedshittu"
+                      className="flex items-center font-normal rounded-lg"
+                    >
+                      <svg
+                        className="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                      </svg>
+                      <span className="flex-1 ml-3 whitespace-nowrap">LinkedIn</span>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://linkedin.com/in/muhammedshittu"
+                      className="flex items-center font-normal rounded-lg"
+                    >
+                      <svg
+                        className="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                      </svg>
+                      <span className="flex-1 ml-3 whitespace-nowrap">Twitter</span>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://linkedin.com/in/muhammedshittu"
+                      className="flex items-center font-normal rounded-lg"
+                    >
+                      <svg
+                        className="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                      </svg>
+                      <span className="flex-1 ml-3 whitespace-nowrap">Email</span>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://linkedin.com/in/muhammedshittu"
+                      className="flex items-center font-normal rounded-lg"
+                    >
+                      <svg
+                        className="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                      </svg>
+                      <span className="flex-1 ml-3 whitespace-nowrap">Resume</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Projects */}
+            <section className="py-20">
               <div className="section-heading">
-                <h1 className="text-6xl font-bold">Tools & Software</h1>
-                <p className="md:w-8/12 mt-4 mr-auto">
+                <h1 className="text-6xl font-bold">Projects</h1>
+                {/* <p className="md:w-8/12 mt-4 mr-auto">
                   Over the years, I had the opportunity to work with various software, tools and
                   frameworks. Here are some of them:
-                </p>
+                </p> */}
               </div>
-              <div className="section-body">
-                {/* <div className="flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4"> */}
+              <div className="section-body mt-12">
                 <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl  text-cyan-800 dark:text-cyan-400">
                   {TOOLS_AND_SOFTWARES.map((tool, i) => (
                     <li key={i}>
@@ -374,7 +468,28 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* </div> */}
+              </div>
+            </section>
+            {/* Tools and Features */}
+            <section className="border-t border-slate-300  py-24">
+              <div className="section-heading">
+                <h1 className="text-6xl font-bold">Tools & Software</h1>
+                <p className="md:w-8/12 mt-4 mr-auto">
+                  Over the years, I had the opportunity to work with various software, tools and
+                  frameworks. Here are some of them:
+                </p>
+              </div>
+              <div className="section-body mt-12">
+                <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl  text-cyan-800 dark:text-cyan-400">
+                  {TOOLS_AND_SOFTWARES.map((tool, i) => (
+                    <li key={i}>
+                      <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
+                        {/* ${i == 0 ? 'ml-0' : 'ml-3'} */}
+                        <span className={` flex-1 whitespace-nowrap m-4`}>{tool}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </section>
             {/* Subscribe */}
