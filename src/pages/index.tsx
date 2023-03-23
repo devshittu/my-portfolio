@@ -34,58 +34,58 @@ export default function Home() {
             </div>
           </nav>
         </div>
-        <section className="text-slate-700 bg-white mt-20x">
-          <div className="container md:max-w-6xl flex flex-col items-center py-16 mx-auto md:flex-row">
-            <div className="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mb-0">
-              <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
-                {' '}
-                Hi, I &apos;m{' '}
-              </h2>
-              <h1 className="mb-8 text-3xl font-black tracking-tighter md:text-8xl">
-                Muhammed Shittu{' '}
-              </h1>
-              <h3 className="mb-8 text-2xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
-                Full Stack Software Engineer{' '}
-              </h3>
-              <p className="mb-8  text-2xl leading-relaxed text-left">
-                {' '}
-                Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable
-                sections for your landing page.{' '}
-              </p>
-              <div className="flex flex-col justify-center lg:flex-row ">
-                <a
-                  target="_blank"
-                  className="flex items-center   font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <svg
-                    className="flex-shrink-0 w-8 h-8 transition duration-75 dark:text-gray-400 "
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                  </svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-                </a>
-              </div>
-            </div>
-            <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 ">
-              <Image
-                className="object-cover object-center rounded-lg"
-                alt="hero"
-                src="https://dummyimage.com/600x720/F3F4F7/8693ac"
-                width={600}
-                height={720}
-                priority
-              />
-            </div>
-          </div>
-        </section>
       </header>
 
+      <section className="text-slate-700 bg-white mt-20x">
+        <div className="container md:max-w-6xl flex flex-col items-center py-16 mx-auto md:flex-row">
+          <div className="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mb-0">
+            {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
+                {' '}
+                Hi, I &apos;m{' '}
+              </h2> */}
+            <h1 className="mb-4 md:mb-8 text-6xl font-black tracking-tighter md:text-8xl">
+              Muhammed Shittu{' '}
+            </h1>
+            <h3 className="mb-4 md:mb-8 text-4xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
+              Full Stack Software Engineer{' '}
+            </h3>
+            <p className="mb-8 md:text-2xl leading-relaxed text-left">
+              {' '}
+              Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable
+              sections for your landing page.{' '}
+            </p>
+            <div className="flex flex-col justify-center lg:flex-row ">
+              <a
+                target="_blank"
+                className="flex items-center   font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <svg
+                  className="flex-shrink-0 w-8 h-8 transition duration-75 dark:text-gray-400 "
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                </svg>
+                <span className="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+              </a>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block">
+            <Image
+              className="object-cover object-center rounded-lg"
+              alt="hero"
+              src="https://dummyimage.com/600x720/F3F4F7/8693ac"
+              width={600}
+              height={720}
+              priority
+            />
+          </div>
+        </div>
+      </section>
       <section className="text-slate-700 bg-white mt-20">
         <div className="container md:max-w-6xl  py-24x mx-auto ">
-          <div className="flex flex-col items-center md:flex-row">
+          {/* <div className="flex flex-col items-center md:flex-row">
             <div className="grid grid-cols-10 w-full relative gap-4 min-h-screen">
               <aside className="col-span-2 flex flex-col top-0 left-3 sticky h-screen">
                 <h1 className="text-2xl font-bold underline">Hello world!</h1>
@@ -346,7 +346,7 @@ export default function Home() {
                 </p>
               </main>
             </div>
-          </div>
+          </div> */}
 
           <section className="py-24">
             <div className="flex md:flex-row flex-col justify-between">
