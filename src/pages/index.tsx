@@ -15,9 +15,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className=" w-full  ">
-        <div className="bg-gradient-to-b from-sky-500/20 to-white/30 backdrop:blur">
-          <nav className="md:containerx mx-auto md:max-w-6xl py-16 flex justify-end">
+      <header className=" w-full  relative">
+        <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg fixedx z-10x w-fullx">
+          <nav className="mx-auto md:max-w-6xl py-14 md:py-16 flex justify-center md:justify-end">
             <div className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize  ">
               <a className="!rounded-l-3xl py-[10px]  px-[12px] sm:px-6 inline-flex items-center justify-center font-medium border border-gray-50 text-center focus:bg-primary bg-white">
                 {' '}
@@ -36,55 +36,8 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="text-slate-700 bg-white mt-20x">
-        <div className="container md:max-w-6xl flex flex-col items-center py-16 mx-auto md:flex-row">
-          <div className="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mb-0">
-            {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
-                {' '}
-                Hi, I &apos;m{' '}
-              </h2> */}
-            <h1 className="mb-4 md:mb-8 text-6xl font-black tracking-tighter md:text-8xl">
-              Muhammed Shittu{' '}
-            </h1>
-            <h3 className="mb-4 md:mb-8 text-4xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
-              Full Stack Software Engineer{' '}
-            </h3>
-            <p className="mb-8 md:text-2xl leading-relaxed text-left">
-              {' '}
-              Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable
-              sections for your landing page.{' '}
-            </p>
-            <div className="flex flex-col justify-center lg:flex-row ">
-              <a
-                target="_blank"
-                className="flex items-center   font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <svg
-                  className="flex-shrink-0 w-8 h-8 transition duration-75 dark:text-gray-400 "
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-              </a>
-            </div>
-          </div>
-          <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block">
-            <Image
-              className="object-cover object-center rounded-lg"
-              alt="hero"
-              src="https://dummyimage.com/600x720/F3F4F7/8693ac"
-              width={600}
-              height={720}
-              priority
-            />
-          </div>
-        </div>
-      </section>
-      <section className="text-slate-700 bg-white mt-20">
-        <div className="container md:max-w-6xl  py-24x mx-auto ">
+      <main className="text-slate-700">
+        <div className="container md:max-w-6xl px-4 md:px-0 mx-auto ">
           {/* <div className="flex flex-col items-center md:flex-row">
             <div className="grid grid-cols-10 w-full relative gap-4 min-h-screen">
               <aside className="col-span-2 flex flex-col top-0 left-3 sticky h-screen">
@@ -348,23 +301,70 @@ export default function Home() {
             </div>
           </div> */}
 
-          <section className="py-24">
-            <div className="flex md:flex-row flex-col justify-between">
-              <div className="section-body w-1/2">
-                <div className=" relative float-left">
+          <section className="text-slate-700 bg-white">
+            <div className="container md:max-w-6xl flex flex-col items-center py-10 md:py-16 mx-auto md:flex-row">
+              <div className="flex flex-col items-start mb-0 md:mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16">
+                {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
+                {' '}
+                Hi, I &apos;m{' '}
+              </h2> */}
+                <h1 className="mb-4 md:mb-8 text-6xl font-black tracking-tighter md:text-8xl">
+                  Muhammed Shittu{' '}
+                </h1>
+                <h3 className="mb-4 md:mb-8 text-4xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
+                  Full Stack Software Engineer{' '}
+                </h3>
+                <p className="mb-8 md:text-2xl leading-relaxed text-left">
+                  {' '}
+                  Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable
+                  sections for your landing page.{' '}
+                </p>
+                <div className="flex flex-col justify-center lg:flex-row ">
+                  <a
+                    target="_blank"
+                    className="flex items-center   font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    <svg
+                      className="flex-shrink-0 w-8 h-8 transition duration-75 dark:text-gray-400 "
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    <span className="flex-1 ml-3 whitespace-nowrap">LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+              <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block">
+                <Image
+                  className="object-cover object-center rounded-lg"
+                  alt="hero"
+                  src="https://dummyimage.com/600x720/F3F4F7/8693ac"
+                  width={600}
+                  height={720}
+                  priority
+                />
+              </div>
+            </div>
+          </section>
+          <section className="py-20 md:py-24">
+            <div className="flex md:flex-row flex-col justify-between gap-5">
+              <div className="section-body w-full md:w-1/2">
+                <div className=" relative float-left hidden md:block">
                   <Image
                     width={112}
                     height={112}
-                    className="mb-0x w-28 h-28 rounded-full mr-6"
+                    className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
                     src="https://dummyimage.com/128x128/F3F4F7/8693ac"
                     alt="product designer"
                   />
                 </div>
-                <h2 className="text-8xl font-extrabold">
+                <h2 className="text-5xl md:text-8xl font-extrabold">
                   I design <span className="text-cyan-800">component systems</span>
                 </h2>
               </div>
-              <div className="w-5/12 text-2xl leading-relaxed">
+              <div className=" w-full md:w-5/12 text-lg md:text-2xl leading-relaxed">
                 <p>
                   An engineer with a strong design background, specializing in design systems,
                   accessibility and interface design for digital products
@@ -451,7 +451,7 @@ export default function Home() {
                   <div className="md:flex p-4  overflow-hidden shadow-lgx">
                     <div className="md:flex-shrink-0">
                       <Image
-                        className="rounded-lg md:w-56"
+                        className="rounded-lg w-full md:w-56"
                         src="https://dummyimage.com/224x170/F3F4F7/8693ac"
                         alt="Woman paying for a purchase"
                         width={224}
@@ -500,7 +500,7 @@ export default function Home() {
               </p>
             </div>
             <div className="section-body mt-12">
-              <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl  text-cyan-800 dark:text-cyan-400">
+              <ul className="list-none flex flex-colx lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl md:text-3xl  text-cyan-800 dark:text-cyan-400">
                 {TOOLS_AND_SOFTWARES.map((tool, i) => (
                   <li key={i}>
                     <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
@@ -513,23 +513,24 @@ export default function Home() {
           </section>
           {/* Subscribe */}
           {/* <!-- COMPONENT CODE --> */}
-          <section className="w-full bg-cyan-900 rounded-lg">
-            <div className="container px-4 mx-auto">
-              <div className="grid grid-cols-1 my-10 lg:grid-cols-2">
-                <div className="text-center text-white my-auto mx-4">
-                  <h1 className="font-GT-Pressura-Regular font-bold text-3xl">WANT DISCOUNTS?</h1>
-                  <h2 className="font-GT-Pressura-Regular text-xl">
-                    Join our mail list for news & coupons
-                  </h2>
+          <section className="w-full rounded-lg">
+            <div className="md:mx-auto py-24  border-t border-slate-300">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div className=" ">
+                  <h1 className="font-bold text-4xl">Stay up to date </h1>
+                  <p className="text-lg mt-8">
+                    Get emails from me about web development, tech, and early access to new
+                    projects.
+                  </p>
                 </div>
-                <div className="py-2 mx-4 lg:py-10">
+                <div className="md:py-2 md:mx-4 lg:py-10">
                   <div className="rounded-full bg-white shadow flex w-full">
                     <input
                       type="text"
                       placeholder="Enter your email to join our mailing list"
                       className="w-full rounded-tl-full rounded-bl-full py-2 px-4"
                     />
-                    <button className="bg-yellow-400 rounded-tr-full rounded-br-full hover:bg-red-300 py-2 px-4">
+                    <button className="bg-gray-400 rounded-tr-full rounded-br-full py-2 px-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-white"
@@ -552,13 +553,13 @@ export default function Home() {
           </section>
           {/* <!-- COMPONENT CODE --> */}
         </div>
-      </section>
+      </main>
 
-      <footer className="relative">
+      <footer>
         <div className="container md:max-w-6xl mx-auto  py-20 border-t border-slate-300">
           <div className="flex flex-wrap text-left lg:text-left">
-            <div className="w-full lg:w-6/12 pr-4">
-              <h4 className="text-3xl font-semibold"> Muhammed Shittu</h4>
+            <div className="w-full lg:w-6/12 px-4 md:-ml-4">
+              <h4 className="text-3xl font-semibold block mb-4"> Muhammed Shittu</h4>
               <h5 className="text-lg mt-0 mb-2 md:w-9/12">
                 Passionate UI engineer looking bridge the gap between design and code
               </h5>
@@ -584,7 +585,7 @@ export default function Home() {
             <div className="w-full lg:w-6/12 px-4x">
               <div className="flex flex-wrap mb-6">
                 <div className="w-full lg:w-1/2 px-4">
-                  <span className="block text-3xl font-semibold mb-2">Contact</span>
+                  <h4 className="block text-3xl font-semibold mb-4">Contact</h4>
                   <ul className="list-unstyled">
                     <li>
                       <a className="block pb-2" href={`mailto:${MY_CONTACT_EMAIL}`}>
@@ -599,7 +600,7 @@ export default function Home() {
                   </ul>
                 </div>
                 <div className="w-full lg:w-1/2 px-4">
-                  <span className="block text-3xl font-semibold mb-2">General</span>
+                  <h4 className="block text-3xl font-semibold mb-4">General</h4>
                   <ul className="list-unstyled">
                     <li>
                       <a className="block pb-2" href="/mission">
@@ -617,7 +618,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="mx-auto md:mt-6">
+            <div className="px-4 md:mx-auto md:mt-6">
               <div className="">
                 All rights reserved © <span id="">2023</span>
                 <a href="#" className=" hover:text-gray-800" target="_blank">
