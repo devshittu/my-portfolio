@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <header className=" w-full  ">
         <div className="bg-gradient-to-b from-sky-500/20 to-white/30 backdrop:blur">
-          <nav className="md:container mx-auto md:max-w-6xl py-16 flex justify-end">
+          <nav className="md:containerx mx-auto md:max-w-6xl py-16 flex justify-end">
             <div className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize  ">
               <a className="!rounded-l-3xl py-[10px]  px-[12px] sm:px-6 inline-flex items-center justify-center font-medium border border-gray-50 text-center focus:bg-primary bg-white">
                 {' '}
@@ -513,7 +513,7 @@ export default function Home() {
           </section>
           {/* Subscribe */}
           {/* <!-- COMPONENT CODE --> */}
-          <section className="w-full bg-cyan-900">
+          <section className="w-full bg-cyan-900 rounded-lg">
             <div className="container px-4 mx-auto">
               <div className="grid grid-cols-1 my-10 lg:grid-cols-2">
                 <div className="text-center text-white my-auto mx-4">
