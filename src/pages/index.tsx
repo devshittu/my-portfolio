@@ -3,10 +3,12 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { MY_CALENDLY_URL, MY_CONTACT_EMAIL, TOOLS_AND_SOFTWARES } from '@/config/constant';
+import { ReactElement } from 'react';
+import { PublicLayout } from '@/layouts/public-layout';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+const Home = function () {
   return (
     <>
       <Head>
@@ -635,3 +637,11 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(
+  page: ReactElement
+) {
+  return <PublicLayout>{page}</PublicLayout>
+}
+
+export default Home;
