@@ -16,6 +16,7 @@ export type LinkProps = {
   shallow?: boolean;
   className?: string;
   size?: keyof typeof sizes;
+  onClick?: () => void;
 };
 export const Link = ({
   href,
@@ -23,6 +24,7 @@ export const Link = ({
   children,
   icon,
   className,
+  onClick,
   shallow = false,
   size = 'md',
 }: LinkProps) => {
@@ -31,6 +33,7 @@ export const Link = ({
       href={href}
       shallow={shallow}
       className={`flex items-center font-normal dark:text-white ${className}`}
+      onClick={onClick}
     >
       {children ? (
         children

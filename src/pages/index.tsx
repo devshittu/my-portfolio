@@ -18,7 +18,7 @@ const Home = function () {
       </Head>
       <main className="text-slate-700">
         <div className="container md:max-w-6xl px-4 md:px-0 mx-auto ">
-          <section className="text-slate-700 bg-white">
+          <section className="text-slate-700x">
             <div className="container md:max-w-6xl flex flex-col items-center py-10 md:py-16 mx-auto md:flex-row">
               <div className="flex flex-col items-start mb-0 md:mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16">
                 {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
