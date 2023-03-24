@@ -40,7 +40,7 @@ export const Link = ({
       ) : (
         <>
           {icon}
-          <span className="flex-1 ml-3 whitespace-nowrap">{text}</span>
+          {text && <span className="flex-1 ml-3 whitespace-nowrap">{text}</span>}
         </>
       )}
     </NextLink>
