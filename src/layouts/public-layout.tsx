@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import { MY_CALENDLY_URL, MY_CONTACT_EMAIL } from '@/config/constant';
+import { Link } from '@/components/link';
 
 type PublicLayoutProps = {
   children: ReactNode;
@@ -20,33 +21,54 @@ const Header = () => {
   return (
     <header className=" w-full  relative">
       <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg fixedx z-10x w-fullx">
-        <nav className="mx-auto md:max-w-6xl py-14 md:py-16 flex justify-center md:justify-end">
+        <nav className="mx-auto md:max-w-6xl py-14 md:py-16 flex justify-center md:justify-between md:justify-endx">
+          <div className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 bg-white ">
+            <Link href="/" className="p-3 sm:px-6 inline-flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className=""
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </Link>
+          </div>
           <div
             className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize 
             bg-white "
           >
-            <a
+            <Link
+              href="/about"
               className="!rounded-l-3xl py-[10px]  px-[12px] sm:px-6
             inline-flex items-center justify-center font-medium
             border border-gray-50 text-center focus:bg-primary"
             >
               {' '}
               About
-            </a>
-            <a
+            </Link>
+            <Link
+              href="/blog"
               className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium border 
             border-gray-50 text-center focus:bg-primary"
             >
               {' '}
               Blog/Articles
-            </a>
-            <a
+            </Link>
+            <Link
+              href="/blog"
               className="!rounded-r-3xl py-[10px] px-[12px] sm:px-6 inline-flex 
             items-center justify-center font-medium border border-gray-50 text-center focus:bg-primary "
             >
               {' '}
               Work
-            </a>
+            </Link>
           </div>
         </nav>
       </div>
