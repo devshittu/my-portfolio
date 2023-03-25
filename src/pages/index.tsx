@@ -16,7 +16,7 @@ const Home = function () {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="text-slate-700">
+      <main className="text-slate-700 dark:text-slate-200">
         <div className="container md:max-w-6xl px-4 md:px-0 mx-auto ">
           <section className="text-slate-700x">
             <div className="container md:max-w-6xl flex flex-col items-center py-10 md:py-16 mx-auto md:flex-row">
@@ -86,7 +86,8 @@ const Home = function () {
                   />
                 </div>
                 <h2 className="text-5xl md:text-8xl font-extrabold">
-                  I design <span className="text-cyan-800">component systems</span>
+                  I design{' '}
+                  <span className="text-cyan-800 dark:text-cyan-400">component systems</span>
                 </h2>
               </div>
               <div className=" w-full md:w-5/12 text-lg md:text-2xl leading-relaxed">
@@ -172,7 +173,7 @@ const Home = function () {
             </div>
             <div className="section-body mt-12">
               <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4">
-                <li className="hover:bg-slate-200 rounded">
+                <li className="hover:bg-slate-200 dark:hover:bg-slate-800 rounded">
                   <div className="md:flex p-4  overflow-hidden shadow-lgx">
                     <div className="md:flex-shrink-0">
                       <Image
