@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  :root {
-    /* Your default theme */
-    --background: white;
-    --foreground: black;
-  }
-
-  [data-theme='dark'] {
-    --background: black;
-    --foreground: white;
-  }
-
   html {
     font-family: Inter, system-ui, sans-serif;
   }
@@ -31,6 +20,6 @@
   }
   html,
   body {
-    @apply h-full text-lg text-slate-700 dark:text-white min-h-screen overflow-x-hidden;
+    @apply h-full text-lg  bg-white dark:bg-slate-900 text-slate-700 dark:text-white min-h-screen overflow-x-hidden;
   }
 }
