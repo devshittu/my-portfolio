@@ -35,32 +35,12 @@ const Header = () => {
                 alt=""
               />
             </Link>
-            <div className="rounded-3xl shadow-xl shadow-cyan-700/10 my-3 bg-white ">
-              {theme === 'light' ? (
-                <button
-                  className="p-3 sm:px-6 inline-flex items-center justify-center"
-                  onClick={() => setTheme('dark')}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className=""
-                  >
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                  </svg>
-                </button>
-              ) : (
-                <button
-                  className="p-3 sm:px-6 inline-flex items-center justify-center"
-                  onClick={() => setTheme('light')}
-                >
+            <div className="rounded-3xl shadow-cyan-700/10 my-3 ">
+              <button
+                onClick={() => (theme == 'dark' ? setTheme('light') : setTheme('dark'))}
+                className="p-3 sm:px-6 inline-flex items-center justify-center"
+              >
+                {theme == 'dark' ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -82,27 +62,41 @@ const Header = () => {
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
-                </button>
-              )}
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className=""
+                  >
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
           <div
             className="inline-flex h-fit rounded-3xl items-center shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize 
-            bg-white "
+            bg-white dark:bg-cyan-700/25 text-slate-800 "
           >
             <Link
               href="/about"
               className="!rounded-l-3xl py-[10px]  px-[12px] sm:px-6
             inline-flex items-center justify-center font-medium
-            border border-gray-50 text-center focus:bg-primary"
+            text-center focus:bg-primary"
             >
               {' '}
               About
             </Link>
             <Link
               href="/blog"
-              className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium border 
-            border-gray-50 text-center focus:bg-primary"
+              className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium text-center focus:bg-primary"
             >
               {' '}
               Blog/Articles
@@ -110,7 +104,7 @@ const Header = () => {
             <Link
               href="/blog"
               className="!rounded-r-3xl py-[10px] px-[12px] sm:px-6 inline-flex 
-            items-center justify-center font-medium border border-gray-50 text-center focus:bg-primary "
+            items-center justify-center font-medium  text-center focus:bg-primary "
             >
               {' '}
               Work
