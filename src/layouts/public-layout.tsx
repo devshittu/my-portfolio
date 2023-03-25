@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { MY_CALENDLY_URL, MY_CONTACT_EMAIL } from '@/config/constant';
 import { Link } from '@/components/link';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 type PublicLayoutProps = {
   children: ReactNode;
@@ -24,13 +25,22 @@ const Header = () => {
     <header className=" w-full  relative">
       <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg fixedx z-10x w-fullx">
         <nav className="mx-auto md:max-w-6xl py-14 md:py-16 flex justify-center md:justify-between md:justify-endx">
-          <div className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 bg-white ">
-            {theme === 'light' ? (
-              <Link
-                href="/"
-                className="p-3 sm:px-6 inline-flex items-center justify-center"
-                onClick={() => setTheme('dark')}
-                icon={
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                width={112}
+                height={112}
+                className="w-8 h-8 md:w-20 md:h-20 rounded-full mr-3 md:mr-6 shadow-xl shadow-cyan-700/10"
+                src="https://dummyimage.com/128x128/F3F4F7/8693ac"
+                alt=""
+              />
+            </Link>
+            <div className="rounded-3xl shadow-xl shadow-cyan-700/10 my-3 bg-white ">
+              {theme === 'light' ? (
+                <button
+                  className="p-3 sm:px-6 inline-flex items-center justify-center"
+                  onClick={() => setTheme('dark')}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -45,14 +55,12 @@ const Header = () => {
                   >
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                   </svg>
-                }
-              />
-            ) : (
-              <Link
-                href="/"
-                className="p-3 sm:px-6 inline-flex items-center justify-center"
-                onClick={() => setTheme('light')}
-                icon={
+                </button>
+              ) : (
+                <button
+                  className="p-3 sm:px-6 inline-flex items-center justify-center"
+                  onClick={() => setTheme('light')}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -74,12 +82,12 @@ const Header = () => {
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
-                }
-              />
-            )}
+                </button>
+              )}
+            </div>
           </div>
           <div
-            className="inline-flex rounded-3xl shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize 
+            className="inline-flex h-fit rounded-3xl items-center shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize 
             bg-white "
           >
             <Link
