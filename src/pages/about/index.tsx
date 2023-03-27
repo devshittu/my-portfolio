@@ -265,9 +265,9 @@ const AboutPage = () => {
     </main>
   );
 };
-
 AboutPage.getLayout = function getLayout(page: ReactElement) {
   return <PublicLayout>{page}</PublicLayout>;
 };
+AboutPage.theme = 'dark';
 
 export default AboutPage;
