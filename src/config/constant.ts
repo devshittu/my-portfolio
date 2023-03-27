@@ -22,3 +22,6 @@ export const TOOLS_AND_SOFTWARES = [
   'MongoDB',
   'Maria/MysqlDB',
 ];
+
+export const THEME_DARK = 'dark';
+export const THEME_LIGHT = 'light';
