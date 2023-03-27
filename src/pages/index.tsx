@@ -33,8 +33,11 @@ const Home = function () {
                 </h3>
                 <p className="mb-8 md:text-2xl leading-relaxed text-left">
                   {' '}
-                  Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable
-                  sections for your landing page.{' '}
+                  I&apos;m passionate about collaborating with talented individuals to create
+                  outstanding software.
+                  {/* I'm passionate about crafting innovative and high-performance web
+                  applications using my skills in FullStack development, cloud technologies, and
+                  automated testing to deliver outstanding results that exceed expectations. */}
                 </p>
                 <div className="flex flex-col justify-center lg:flex-row ">
                   <Link
@@ -85,15 +88,16 @@ const Home = function () {
                     alt="product designer"
                   />
                 </div>
-                <h2 className="text-5xl md:text-8xl font-extrabold">
-                  I design{' '}
-                  <span className="text-cyan-800 dark:text-cyan-400">component systems</span>
+                <h2 className="text-5xl md:text-8xl font-extrabold ">
+                  I build{' '}
+                  <span className="text-cyan-800 dark:text-cyan-400"> delightful products</span>
                 </h2>
               </div>
               <div className=" w-full md:w-5/12 text-lg md:text-2xl leading-relaxed">
                 <p>
-                  An engineer with a strong design background, specializing in design systems,
-                  accessibility and interface design for digital products
+                  A dynamic engineer with a year of experience building outstanding web applications
+                  and optimizing code for peak performance, proficient in a wide range of languages
+                  and frameworks.
                 </p>{' '}
                 {/* <div className="">LinkedIn Resume</div> */}
                 <div className="flex flex-wrap flex-row mt-6 lg:mb-0 mb-6 w-10/12 gap-4">
@@ -167,8 +171,9 @@ const Home = function () {
             <div className="section-heading">
               <h1 className="text-6xl font-bold">Projects</h1>
               <p className="md:w-8/12 mt-4 mr-auto">
-                Over the years, I had the opportunity to work with various software, tools and
-                frameworks. Here are some of them:
+                My work largely revolves on the front-end with Vue/Nuxt.js, React/Next.js &
+                TypeScript, Backend with and Node.js, Laravel and Django. Here are some of the
+                projects I have worked on to showcase my skills:
               </p>
             </div>
             <div className="section-body mt-12">
