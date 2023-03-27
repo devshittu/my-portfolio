@@ -4,7 +4,11 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 
-type NextPageWithLayout = NextPage & {
+type NextPageWithTheme = NextPage & {
+  theme?: string;
+};
+
+type NextPageWithLayout = NextPageWithTheme & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
@@ -16,5 +20,5 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const pageContent = getLayout(<Component {...pageProps} />);
 
-  return <AppProvider>{pageContent}</AppProvider>;
+  return <AppProvider theme={Component.theme}>{pageContent}</AppProvider>;
 }
