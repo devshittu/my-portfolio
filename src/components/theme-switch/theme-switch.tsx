@@ -4,7 +4,7 @@ import { THEME_DARK, THEME_LIGHT } from '@/config/constant';
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, setTheme, systemTheme, forcedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -13,12 +13,16 @@ const ThemeSwitch = () => {
   if (!mounted) return null;
 
   const currentTheme = theme === systemTheme ? systemTheme : theme;
+  const disabled = !!forcedTheme;
 
   return (
     <>
       <button
         onClick={() => (theme === THEME_DARK ? setTheme(THEME_LIGHT) : setTheme(THEME_DARK))}
-        className="p-3 sm:px-6x inline-flex items-center justify-center"
+        className={`p-3 sm:px-6x inline-flex items-center justify-center ${
+          disabled ? 'hidden' : ''
+        }`}
+        disabled={disabled}
       >
         <span className="mr-2 inline-block">
           {currentTheme === THEME_DARK ? (
