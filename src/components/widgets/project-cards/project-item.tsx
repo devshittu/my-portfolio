@@ -1,3 +1,4 @@
+import { Tag } from '@/components/tag';
 import Image from 'next/image';
 import React from 'react';
 
@@ -32,27 +33,20 @@ const ProjectItem = ({
           />
         </div>
         <div className="mt-4 md:mt-0 md:ml-6">
-          <div className="uppercase tracking-wide text-sm font-bold">
-            <i className="fas fa-bullhorn mr-2"></i>Marketing
-          </div>
+          {category && (
+            <div className="uppercase tracking-wide text-sm font-bold">
+              {/* <i className="fas fa-bullhorn mr-2"></i> */} {category}
+            </div>
+          )}
           <a href="#" className="block mt-1 text-lg hover:underline font-bold">
-            Looking for blogger
+            {title}
           </a>
 
-          <p className="mt-2">
-            Getting a new business off the ground is a lot of hard work. Here are five ideas you can
-            use to find your first customers.
-          </p>
+          <p className="mt-2">{description}</p>
           <div className="pt-4 pb-2">
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
+            <Tag name='vite'/>
+            <Tag name='ReactJs'/>
+            <Tag name='VanillaJs'/>
           </div>
         </div>
       </div>

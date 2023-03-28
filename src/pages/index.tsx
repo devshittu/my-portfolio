@@ -102,7 +102,7 @@ const Home = function () {
               </div>
               <div className=" w-full md:w-5/12 text-lg md:text-2xl leading-relaxed">
                 <p>
-                  A dynamic engineer with a year of experience building outstanding web applications
+                  A dynamic engineer with 2 years of experience building outstanding web applications
                   and optimizing code for peak performance, proficient in a wide range of languages
                   and frameworks.
                 </p>{' '}
