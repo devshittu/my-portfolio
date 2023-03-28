@@ -179,7 +179,7 @@ const Home = function () {
             <div className="section-body mt-12">
               <ul className="list-none flex flex-col lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4">
                 <li className="hover:bg-slate-200 dark:hover:bg-slate-800 rounded">
-                  <div className="md:flex p-4  overflow-hidden shadow-lgx">
+                  <div className="md:flex p-4  overflow-hidden">
                     <div className="md:flex-shrink-0">
                       <Image
                         className="rounded-lg w-full md:w-56"
@@ -193,14 +193,11 @@ const Home = function () {
                       <div className="uppercase tracking-wide text-sm font-bold">
                         <i className="fas fa-bullhorn mr-2"></i>Marketing
                       </div>
-                      <a
-                        href="#"
-                        className="block mt-1 text-lg text-gray-900 hover:underline font-bold"
-                      >
+                      <a href="#" className="block mt-1 text-lg hover:underline font-bold">
                         Looking for blogger
                       </a>
 
-                      <p className="mt-2 text-gray-600">
+                      <p className="mt-2">
                         Getting a new business off the ground is a lot of hard work. Here are five
                         ideas you can use to find your first customers.
                       </p>
