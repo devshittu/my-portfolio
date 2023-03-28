@@ -13,6 +13,7 @@ type ProjectItemProps = {
 };
 
 const ProjectItem = ({
+  thumbnail,
   title,
   description,
   githubLink,
@@ -26,8 +27,8 @@ const ProjectItem = ({
         <div className="md:flex-shrink-0">
           <Image
             className="rounded-lg w-full md:w-56"
-            src="https://dummyimage.com/224x170/F3F4F7/8693ac"
-            alt="Woman paying for a purchase"
+            src={thumbnail || 'https://dummyimage.com/224x170/F3F4F7/8693ac'}
+            alt={title}
             width={224}
             height={170}
           />
@@ -44,9 +45,9 @@ const ProjectItem = ({
 
           <p className="mt-2">{description}</p>
           <div className="pt-4 pb-2">
-            <Tag name='vite'/>
-            <Tag name='ReactJs'/>
-            <Tag name='VanillaJs'/>
+            <Tag name="vite" />
+            <Tag name="ReactJs" />
+            <Tag name="VanillaJs" />
           </div>
         </div>
       </div>
