@@ -4,6 +4,7 @@ import { MY_CALENDLY_URL, MY_CONTACT_EMAIL } from '@/config/constant';
 import { Link } from '@/components/link';
 import Image from 'next/image';
 import ThemeSwitch from '@/components/theme-switch/theme-switch';
+import profilePhoto from '../../public/me.jpeg';
 
 type PublicLayoutProps = {
   children: ReactNode;
@@ -23,14 +24,14 @@ const Header = () => {
   return (
     <header className=" w-full  relative">
       <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg fixedx z-10x w-fullx">
-        <nav className="mx-auto md:max-w-6xl py-14 md:py-16 flex justify-center md:justify-between md:justify-endx">
+        <nav className="mx-auto md:max-w-6xl py-2 md:py-16 flex justify-center md:justify-between">
           <div className="flex items-center">
-            <Link href="/">
+            <Link href="/" className="">
               <Image
                 width={112}
                 height={112}
-                className="w-8 h-8 md:w-20 md:h-20 rounded-full mr-3 md:mr-6 shadow-xl shadow-cyan-700/10"
-                src="https://dummyimage.com/128x128/F3F4F7/8693ac"
+                className="w-8 h-8 md:w-16 md:h-16 rounded-full mr-3 md:mr-6 shadow-xl shadow-cyan-700/10 ring-offset-2 ring-offset-white dark:ring-offset-black ring ring-cyan-500"
+                src={profilePhoto || 'https://dummyimage.com/128x128/F3F4F7/8693ac'}
                 alt=""
               />
             </Link>
@@ -39,8 +40,8 @@ const Header = () => {
             </div>
           </div>
           <div
-            className="inline-flex h-fit rounded-3xl items-center shadow-xl shadow-cyan-700/10 my-3 text-sm sm:text-base capitalize 
-            bg-white dark:bg-cyan-700/25 text-slate-800 "
+            className="inline-flex h-fit rounded-3xl items-center shadow-xl shadow-cyan-700/10 my-3x text-sm sm:text-base capitalize 
+            bg-white dark:bg-cyan-700/25 text-slate-800 self-center "
           >
             <Link
               href="/about"

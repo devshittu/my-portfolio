@@ -24,17 +24,16 @@ const ThemeSwitch = () => {
         }`}
         disabled={disabled}
       >
-        <span className="mr-2 inline-block">
+        <span className="md:mr-2 inline-block">
           {currentTheme === THEME_DARK ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="stroke-2 w-6 h-6"
             >
               <circle cx="12" cy="12" r="5" />
               <line x1="12" y1="1" x2="12" y2="3" />
@@ -49,21 +48,18 @@ const ThemeSwitch = () => {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className=""
+              className="stroke-2 w-6 h-6"
             >
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           )}
         </span>
-        <span className="capitalize italic text-slate-600 dark:text-slate-100">
+        <span className="capitalize italic text-slate-600 dark:text-slate-100 hidden md:block">
           {currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK}
         </span>
       </button>
