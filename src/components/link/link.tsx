@@ -32,7 +32,7 @@ export const Link = ({
     <NextLink
       href={href}
       shallow={shallow}
-      className={`flex items-center font-normal dark:text-white ${className}`}
+      className={`flex items-center font-normal ${className}`}
       onClick={onClick}
     >
       {children ? (
