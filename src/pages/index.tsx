@@ -18,9 +18,9 @@ const Home = function () {
       </Head>
       <main className="text-slate-700 dark:text-slate-200">
         <div className="container md:max-w-6xl px-4 md:px-0 mx-auto ">
-          <section className="text-slate-700x">
+          <section>
             <div className="container md:max-w-6xl flex flex-col items-center py-10 md:py-16 mx-auto md:flex-row">
-              <div className="flex flex-col items-start text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16">
+              <div className="flex flex-col items-start text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 animate-slide-in-left">
                 {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
                 {' '}
                 Hi, I &apos;m{' '}
@@ -64,7 +64,7 @@ const Home = function () {
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block">
+              <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block  animate-swing-in-right-fwd">
                 <Image
                   className="object-cover object-center rounded-lg"
                   alt="hero"
