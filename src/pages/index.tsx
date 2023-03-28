@@ -6,6 +6,7 @@ import { TOOLS_AND_SOFTWARES } from '@/config/constant';
 import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
+import profilePhoto from '../../public/me.jpeg';
 
 const Home = function () {
   return (
@@ -66,11 +67,11 @@ const Home = function () {
               </div>
               <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block  animate-swing-in-right-fwd">
                 <Image
-                  className="object-cover object-center rounded-lg"
-                  alt="hero"
-                  src="https://dummyimage.com/600x720/F3F4F7/8693ac"
                   width={600}
                   height={720}
+                  className="object-cover object-center rounded-lg"
+                  src={profilePhoto}
+                  alt="me"
                   priority
                 />
               </div>
@@ -80,11 +81,16 @@ const Home = function () {
             <div className="flex md:flex-row flex-col justify-between gap-5">
               <div className="section-body w-full md:w-1/2">
                 <div className=" relative float-left hidden md:block">
-                  <Image
+                  {/* <Image
                     width={112}
                     height={112}
                     className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
                     src="https://dummyimage.com/128x128/F3F4F7/8693ac"
+                    alt="product designer"
+                  /> */}
+                  <Image
+                    className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
+                    src={profilePhoto}
                     alt="product designer"
                   />
                 </div>
