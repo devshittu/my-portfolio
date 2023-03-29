@@ -6,8 +6,8 @@ import React, { ReactElement } from 'react';
 const AboutPage = () => {
   return (
     <>
-      <main className="py-10 md:py-16 ">
-        <article className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
+      <main className="py-10 md:py-24">
+        <article className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12 text-justify">
           {/* <div>
             <div className="order-first -mx-4x flex flex-auto basis-full overflow-x-auto whitespace-nowrap py-4 font-mono text-sm text-cyan-600 sm:-mx-6 lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0">
               <div className="mx-auto flex items-center gap-4 px-4">

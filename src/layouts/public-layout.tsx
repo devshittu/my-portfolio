@@ -53,7 +53,7 @@ const Header = () => {
               About
             </Link>
             <Link
-              href="/blog"
+              href="/resume"
               className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium text-center focus:bg-primary"
             >
               {' '}
@@ -80,7 +80,7 @@ const Footer = () => {
       <div className="container md:max-w-6xl mx-auto  py-20 border-t border-slate-300">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full lg:w-6/12 px-4 md:-ml-4">
-            <h4 className="text-3xl font-semibold block mb-4"> Muhammed Shittu</h4>
+            <h4 className="text-3xl font-bold block mb-4"> Muhammed Shittu</h4>
             <h5 className="text-lg mt-0 mb-2 md:w-9/12">
               Passionate UI engineer looking bridge the gap between design and code
             </h5>
@@ -106,7 +106,7 @@ const Footer = () => {
           <div className="w-full lg:w-6/12 px-4x">
             <div className="flex flex-wrap mb-6">
               <div className="w-full lg:w-1/2 px-4">
-                <h4 className="block text-3xl font-semibold mb-4">Contact</h4>
+                <h4 className="block text-3xl font-bold mb-4">Contact</h4>
                 <ul className="list-unstyled">
                   <li>
                     <a className="block pb-2" href={`mailto:${MY_CONTACT_EMAIL}`}>
@@ -121,7 +121,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="w-full lg:w-1/2 px-4">
-                <h4 className="block text-3xl font-semibold mb-4">General</h4>
+                <h4 className="block text-3xl font-bold mb-4">General</h4>
                 <ul className="list-unstyled">
                   <li>
                     <a className="block pb-2" href="/mission">
