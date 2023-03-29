@@ -8,8 +8,9 @@ import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
 import profilePhoto from '../../public/me.jpeg';
-import ArticleItems from '@/components/widgets/article-cards/article-items';;
+import ArticleItems from '@/components/widgets/article-cards/article-items';
 import { ProjectItems } from '@/components/widgets/project-cards';
+import { AppSection } from '@/components/widgets/home/app-section';
 
 const Home = function () {
   return (
@@ -58,7 +59,7 @@ const Home = function () {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="flex-shrink-0 w-6 h-6 transition duration-75 dark:text-gray-400 "
+                        className="flex-shrink-0 w-6 h-6 transition duration-75"
                       >
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                         <rect x="2" y="9" width="4" height="12" />
@@ -84,13 +85,6 @@ const Home = function () {
             <div className="flex md:flex-row flex-col justify-between gap-5">
               <div className="section-body w-full md:w-1/2">
                 <div className=" relative float-left hidden md:block">
-                  {/* <Image
-                    width={112}
-                    height={112}
-                    className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
-                    src="https://dummyimage.com/128x128/F3F4F7/8693ac"
-                    alt="product designer"
-                  /> */}
                   <Image
                     className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
                     src={profilePhoto}
@@ -116,13 +110,15 @@ const Home = function () {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6"
                     >
                       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                       <rect x="2" y="9" width="4" height="12" />
@@ -145,7 +141,7 @@ const Home = function () {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      className="w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6"
                     >
                       <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                     </svg>
@@ -166,7 +162,7 @@ const Home = function () {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      className="w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6"
                     >
                       <circle cx="12" cy="12" r="4" />
                       <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94" />
@@ -184,7 +180,7 @@ const Home = function () {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      className="h-6 w-6"
+                      className="flex-shrink-0 h-6 w-6"
                     >
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
@@ -199,20 +195,25 @@ const Home = function () {
             </div>
           </section>
 
-                  <ProjectItems/>
+          <AppSection
+            title="Projects"
+            description="
+          My work largely revolves on the front-end with Vue/Nuxt.js, React/Next.js & TypeScript,
+          Backend with and Node.js, Laravel and Django. Here are some of the projects I have worked
+          on to showcase my skills:"
+          >
+            <ProjectItems />
+          </AppSection>
           {/* Articles */}
-          <section className="py-20">
-            <div className="section-heading">
-              <h1 className="text-6xl font-bold">Articles I've written</h1>
-              <p className="md:w-8/12 mt-4 mr-auto">
-                I have gained valuable insights and learned important lessons through my experience
+          <AppSection
+            title="Articles I've written"
+            description=" I have gained valuable insights and learned important lessons through my experience
                 as a full stack software developer, and I'm excited to share them with you through
                 my writing. Whether you're a beginner or an experienced developer, my goal is to
                 provide clear, concise, and practical insights that can help you improve your skills
-                and build better apps. Check out some of my articles below and share with others.
-              </p>
-            </div>
-            <div className="section-body mt-12">
+                and build better apps. Check out some of my articles below and share with others."
+          >
+            <div>
               <ArticleItems />
               <Link
                 href="https://mshittu.hashnode.dev/"
@@ -235,28 +236,24 @@ const Home = function () {
                 </svg>
               </Link>
             </div>
-          </section>
+          </AppSection>
           {/* Tools and Features */}
-          <section className="border-t border-slate-300  py-24">
-            <div className="section-heading">
-              <h1 className="text-6xl font-bold">Tools & Software</h1>
-              <p className="md:w-8/12 mt-4 mr-auto">
+          <AppSection
+            title="Tools & Software"
+            description="
                 Over the years, I had the opportunity to work with various software, tools and
-                frameworks. Here are some of them:
-              </p>
-            </div>
-            <div className="section-body mt-12">
-              <ul className="list-none flex flex-colx lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl md:text-3xl  text-cyan-800 dark:text-cyan-400">
-                {TOOLS_AND_SOFTWARES.map((tool, i) => (
-                  <li key={i}>
-                    <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
-                      <span className={` flex-1 whitespace-nowrap m-4`}>{tool}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+                frameworks. Here are some of them:"
+          >
+            <ul className="list-none flex flex-colx lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl md:text-3xl  text-cyan-800 dark:text-cyan-400">
+              {TOOLS_AND_SOFTWARES.map((tool, i) => (
+                <li key={i}>
+                  <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
+                    <span className={` flex-1 whitespace-nowrap m-4`}>{tool}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </AppSection>
           {/* Subscribe */}
           {/* <!-- COMPONENT CODE --> */}
           <section className="w-full rounded-lg">
