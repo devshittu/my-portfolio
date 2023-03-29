@@ -215,7 +215,11 @@ const Home = function () {
                     </svg>
                     <span className="flex-1 ml-3 whitespace-nowrap">Email</span>
                   </a>
-                  <a target="_blank" href="#" className="flex items-center font-normal rounded-lg">
+                  <a
+                    target="_blank"
+                    href="https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing"
+                    className="flex items-center font-normal rounded-lg"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -302,7 +306,7 @@ const Home = function () {
           </AppSection>
           {/* Subscribe */}
           {/* <!-- COMPONENT CODE --> */}
-          <section className="w-full rounded-lg">
+          {/* <section className="w-full rounded-lg">
             <div className="md:mx-auto py-24  border-t border-slate-300">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div className=" ">
@@ -314,10 +318,6 @@ const Home = function () {
                 </div>
                 <div className="md:py-2 md:mx-4 lg:py-10">
                   <div className="grid w-80 grid-rows-2 gap-1">
-                    {/* <p className="">
-                      Get emails from me about web development, tech, and early access to new
-                      projects.
-                    </p> */}
                     <input
                       type="text"
                       className="h-14 w-full rounded border p-4 bg-transparent"
@@ -330,7 +330,7 @@ const Home = function () {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
           {/* <!-- COMPONENT CODE --> */}
         </div>
       </main>

@@ -53,7 +53,7 @@ const Header = () => {
               About
             </Link>
             <Link
-              href="/resume"
+              href="https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing"
               className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium text-center focus:bg-primary"
             >
               {' '}
