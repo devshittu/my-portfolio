@@ -172,11 +172,7 @@ const Home = function () {
                     </svg>
                     <span className="flex-1 ml-3 whitespace-nowrap">Email</span>
                   </a>
-                  <a
-                    target="_blank"
-                    href="#"
-                    className="flex items-center font-normal rounded-lg"
-                  >
+                  <a target="_blank" href="#" className="flex items-center font-normal rounded-lg">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -240,7 +236,7 @@ const Home = function () {
                     <Image
                       className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
                       src="https://dummyimage.com/1260x750/F3F4F7/8693ac"
-                      alt="Woman workcation on the beach"
+                      alt="Alt"
                       width={1260}
                       height={750}
                     />
@@ -320,28 +316,17 @@ const Home = function () {
                   </p>
                 </div>
                 <div className="md:py-2 md:mx-4 lg:py-10">
-                  <div className="rounded-full bg-white shadow flex w-full">
+                  <div className="grid w-80 grid-rows-2 gap-1">
+                    {/* <p className="">
+                      Get emails from me about web development, tech, and early access to new
+                      projects.
+                    </p> */}
                     <input
                       type="text"
-                      placeholder="Enter your email to join our mailing list"
-                      className="w-full rounded-tl-full rounded-bl-full py-2 px-4"
+                      className="h-14 w-full rounded border p-4 bg-transparent"
+                      placeholder="Your email"
                     />
-                    <button className="bg-gray-400 rounded-tr-full rounded-br-full py-2 px-4">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
-                        />
-                      </svg>
-                    </button>
+                    <button className="rounded bg-cyan-600 h-14">Subscribe to the newsletter</button>
                   </div>
                 </div>
               </div>
