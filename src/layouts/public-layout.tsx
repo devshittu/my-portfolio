@@ -41,7 +41,7 @@ const Header = () => {
           </div>
           <div
             className="inline-flex h-fit rounded-3xl items-center shadow-xl shadow-cyan-700/10 my-3x text-sm sm:text-base capitalize 
-            bg-white dark:bg-cyan-700/25 text-slate-800 self-center "
+            bg-white dark:bg-cyan-600 self-center "
           >
             <Link
               href="/about"

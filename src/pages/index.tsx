@@ -92,7 +92,7 @@ const Home = function () {
                   <Image
                     className="mb-0x w-14 h-14 md:w-28 md:h-28 rounded-full mr-3 md:mr-6"
                     src={profilePhoto}
-                    alt="product designer"
+                    alt="Muhammed Shittu"
                   />
                 </div>
                 <h2 className="text-5xl md:text-8xl font-extrabold ">
@@ -187,7 +187,7 @@ const Home = function () {
               <ProjectItems />
               <Link
                 href="http://mshittu.hashnode.com"
-                className=" font-semibold py-2 text-cyan-400  text-sm mt-6 inline-flex items-center group"
+                className=" font-semibold py-2 text-cyan-400  text-smx  mt-6 inline-flex items-center group"
               >
                 <p> View all </p>
                 <svg

@@ -8,7 +8,25 @@ const AboutPage = () => {
     <>
       <main className="py-10 md:py-16 ">
         <article className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-          <h1 className="font-display text-5xl font-bold tracking-tighter sm:text-7xl">
+          {/* <div>
+            <div className="order-first -mx-4x flex flex-auto basis-full overflow-x-auto whitespace-nowrap py-4 font-mono text-sm text-cyan-600 sm:-mx-6 lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0">
+              <div className="mx-auto flex items-center gap-4 px-4">
+                <p>
+                  <time datetime="2022-04-04">04</time>-
+                  <time datetime="2022-04-06">06 of April, 2022</time>
+                </p>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 6 6"
+                  className="h-1.5 w-1.5 overflow-visible fill-current stroke-current"
+                >
+                  <path d="M3 0L6 3L3 6L0 3Z" stroke-width="2" stroke-linejoin="round"></path>
+                </svg>
+                <p>Los Angeles, CA</p>
+              </div>
+            </div>
+          </div> */}
+          <h1 className="font-display text-5xl font-bold tracking-tighter sm:text-7xl mb-14">
             <span className="sr-only">Muhammed Shittu - </span>About me
           </h1>
           <div className="mt-6 space-y-6 font-display md:text-xl md:text-2xl tracking-tight">
@@ -33,6 +51,7 @@ const AboutPage = () => {
               vision a reality.
             </p>
             <p>
+              {''}
               Explore my portfolio to learn more about my skills, experience, and projects. If
               you're looking for a software engineer who can deliver exceptional results and drive
               business growth, I'm the right person for the job. Let's work together to bring your
@@ -48,7 +67,7 @@ const AboutPage = () => {
           </Link> */}
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             <div>
-              <dt className="font-mono text-sm text-cyan-400">Speakers</dt>
+              <dt className="font-mono text-sm text-cyan-400">Github</dt>
               <dd className="mt-0.5 text-2xl font-semibold tracking-tight text-cyan-700">18</dd>
             </div>
             <div>
