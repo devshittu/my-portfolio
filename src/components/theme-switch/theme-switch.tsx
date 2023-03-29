@@ -24,7 +24,7 @@ const ThemeSwitch = () => {
         }`}
         disabled={disabled}
       >
-        <span className="md:mr-2 inline-block">
+        <span className="md:mr-2 inline-block  animate-swirl-in-fwd">
           {currentTheme === THEME_DARK ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -57,15 +57,15 @@ const Header = () => {
               className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium text-center focus:bg-primary"
             >
               {' '}
-              Blog/Articles
+              Resume
             </Link>
             <Link
-              href="/blog"
+              href="https://mshittu.hashnode.dev/"
               className="!rounded-r-3xl py-[10px] px-[12px] sm:px-6 inline-flex 
             items-center justify-center font-medium  text-center focus:bg-primary "
             >
               {' '}
-              Work
+              Blog
             </Link>
           </div>
         </nav>
