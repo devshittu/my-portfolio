@@ -7,7 +7,7 @@ import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
 import profilePhoto from '../../public/me.jpeg';
-import ProjectItems from '@/components/widgets/project-cards/project-items';
+import ArticleItems from '@/components/widgets/article-cards/article-items';
 
 const Home = function () {
   return (
@@ -173,10 +173,45 @@ const Home = function () {
             </div>
           </section>
 
-          {/* Projects */}
+          <div className="bg-slate-600">
+            <div className="lg:grid lg:grid-cols-2">
+              <div className="py-24 px-10 lg:px-0 max-w-3xl lg:max-w-md mx-auto">
+                <h2 className="text-4xl tracking-tight font-extrabold text-gray-100">
+                  <span className="block">Ready to dive in?</span>
+                  <span className="block">Start your free trial today.</span>
+                </h2>
+                <p className="text-gray-300 mt-5">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                  Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of type and scrambled it to make a type specimen
+                  book.
+                </p>
+                <div className="inline-block shadow mt-5">
+                  <a
+                    href="#"
+                    className="inline-block py-3 px-4 bg-white hover:bg-indigo-100 text-indigo-500 font-medium border border-transparent rounded-md"
+                  >
+                    Sign up for free
+                  </a>
+                </div>
+              </div>
+              <div className="lg:relative lg:mt-16">
+                {/* https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 */}
+                <Image
+                  className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
+                  src="https://dummyimage.com/1260x750/F3F4F7/8693ac"
+                  alt="Woman workcation on the beach"
+                  width={1260}
+                  height={750}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Articles */}
           <section className="py-20">
             <div className="section-heading">
-              <h1 className="text-6xl font-bold">Projects</h1>
+              <h1 className="text-6xl font-bold">Articles</h1>
               <p className="md:w-8/12 mt-4 mr-auto">
                 My work largely revolves on the front-end with Vue/Nuxt.js, React/Next.js &
                 TypeScript, Backend with and Node.js, Laravel and Django. Here are some of the
@@ -184,7 +219,7 @@ const Home = function () {
               </p>
             </div>
             <div className="section-body mt-12">
-              <ProjectItems />
+              <ArticleItems />
               <Link
                 href="http://mshittu.hashnode.com"
                 className=" font-semibold py-2 text-cyan-400  text-smx  mt-6 inline-flex items-center group"
