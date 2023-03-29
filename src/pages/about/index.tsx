@@ -29,7 +29,7 @@ const AboutPage = () => {
           <h1 className="font-display text-5xl font-bold tracking-tighter sm:text-7xl mb-14">
             <span className="sr-only">Muhammed Shittu - </span>About me
           </h1>
-          <div className="mt-6 space-y-6 font-display md:text-xl md:text-2xl tracking-tight">
+          <div className="mt-6 space-y-6 font-display md:text-xl !leading-relaxed">
             <p>
               Welcome to my portfolio! I'm an experienced software engineer with a passion for
               creating user-centric products that solve real-world problems. My work largely

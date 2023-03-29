@@ -52,7 +52,7 @@ const ArticleItem = ({
           </div>
           <div className="pt-4 pb-2">
             {' '}
-            <Link href={githubUrl}>Github</Link>
+            <Link href={githubUrl}>Github Link</Link>
             {liveUrl && <Link href={liveUrl}>Live Preview</Link>}
           </div>
         </div>
