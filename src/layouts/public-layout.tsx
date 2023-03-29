@@ -109,7 +109,10 @@ const Footer = () => {
                 <h4 className="block text-3xl font-bold mb-4">Contact</h4>
                 <ul className="list-unstyled">
                   <li>
-                    <a className="block pb-2" href={`mailto:${MY_CONTACT_EMAIL}`}>
+                    <a
+                      className="block pb-2"
+                      href={`mailto:${MY_CONTACT_EMAIL}`}
+                    >
                       Email Muhammed
                     </a>
                   </li>

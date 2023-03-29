@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      minHeight: (theme) => ({
+        ...theme('spacing'),
+      }),
       keyframes: {
         slideInTop: {
           '0%': {

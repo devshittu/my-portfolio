@@ -3,12 +3,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-import { TOOLS_AND_SOFTWARES } from '@/config/constant';
+import { MY_CONTACT_EMAIL, TOOLS_AND_SOFTWARES } from '@/config/constant';
 import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
 import profilePhoto from '../../public/me.jpeg';
 import ArticleItems from '@/components/widgets/article-cards/article-items';
+import WeatherAppThumbnail from '../../public/project-weather-app.jpg';
 
 const Home = function () {
   return (
@@ -28,10 +29,10 @@ const Home = function () {
                 {' '}
                 Hi, I &apos;m{' '}
               </h2> */}
-                <h1 className="mb-4 md:mb-8 text-6xl font-black tracking-tighter md:text-8xl">
+                <h1 className="mb-4 md:mb-8 text-5xl font-black tracking-tighter md:text-8xl">
                   Muhammed Shittu{' '}
                 </h1>
-                <h3 className="mb-4 md:mb-8 text-4xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
+                <h3 className="mb-4 md:mb-8 text-3xl font-bold tracking-tighter md:text-5xl text-cyan-800 dark:text-cyan-400 ">
                   Full Stack Software Engineer{' '}
                 </h3>
                 <p className="mb-8 md:text-2xl leading-relaxed text-left">
@@ -152,7 +153,7 @@ const Home = function () {
                   </a>
                   <a
                     target="_blank"
-                    href="mailto:mshittu.work@gmail.com"
+                    href={`mailto:${MY_CONTACT_EMAIL}`}
                     className="flex items-center font-normal rounded-lg"
                   >
                     <svg
@@ -198,7 +199,7 @@ const Home = function () {
             </div>
           </section>
 
-          {/* Articles */}
+          {/* Projects */}
           <section className="py-20">
             <div className="section-heading">
               <h1 className="text-6xl font-bold">Projects</h1>
@@ -209,37 +210,74 @@ const Home = function () {
               </p>
             </div>
             <div className="section-body mt-12">
-              <div className="bg-slate-600">
+              <div className="bg-slate-600x">
                 <div className="lg:grid lg:grid-cols-2">
-                  <div className="py-24 px-10 lg:px-0 max-w-3xl lg:max-w-md mx-auto">
-                    <h2 className="text-4xl tracking-tight font-extrabold">
-                      <span className="block">Ready to dive in?</span>
-                      <span className="block">Start your free trial today.</span>
+                  <div className="py-8x max-w-3xl lg:max-w-md">
+                    <h2 className="text-lg lg:text-xl tracking-tight font-bold">
+                      <span className="block">Weather App</span>
                     </h2>
-                    <p className="text-gray-300 mt-5">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      when an unknown printer took a galley of type and scrambled it to make a type
-                      specimen book.
+                    <p className="text-gray-300x mt-5 md:h-48 md:overflow-y-auto md:overflow-hidden">
+                      Built with Vite, ReactJS, Built with Vite, ReactJS, and Vanilla JS, this
+                      weather website automatically detects your location or nearby areas and gives
+                      you the latest weather updates. Plus, it features a sleek dark mode theme, so
+                      you can stay up to date on the weather no matter the time of day. 🌙
                     </p>
-                    <div className="inline-block shadow mt-5">
+                    <div className="inline-flex mt-5 font-medium gap-4">
                       <a
                         href="#"
-                        className="inline-block py-3 px-4 bg-white hover:bg-indigo-100 text-indigo-500 font-medium border border-transparent rounded-md"
+                        className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
                       >
-                        Sign up for free
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          className="w-5 h-5 mr-2"
+                        >
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                        Github Link
+                      </a>
+                      <a
+                        href="#"
+                        className="inline-flex items-center py-3  hover:underline text-cyan-500 font-medium border border-transparent rounded-md"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          className="w-5 h-5 mr-2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="2" y1="12" x2="22" y2="12" />
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        Live Url
                       </a>
                     </div>
                   </div>
-                  <div className="lg:relative lg:mt-16">
-                    {/* https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 */}
-                    <Image
-                      className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
-                      src="https://dummyimage.com/1260x750/F3F4F7/8693ac"
-                      alt="Alt"
-                      width={1260}
-                      height={750}
-                    />
+                  <div className="bg-slate-700 lg:grid lg:grid-cols-1 rounded-lg">
+                    <div className="lg:relative lg:mt-16 lg:ml-16 bg-slate-700x z-10">
+                      {/* https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 */}
+                      <Image
+                        className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
+                        src={WeatherAppThumbnail}
+                        alt="Alt"
+                        width={1260}
+                        height={750}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -326,7 +364,9 @@ const Home = function () {
                       className="h-14 w-full rounded border p-4 bg-transparent"
                       placeholder="Your email"
                     />
-                    <button className="rounded bg-cyan-600 h-14">Subscribe to the newsletter</button>
+                    <button className="rounded bg-cyan-600 h-14">
+                      Subscribe to the newsletter
+                    </button>
                   </div>
                 </div>
               </div>
