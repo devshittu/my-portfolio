@@ -85,19 +85,47 @@ const Footer = () => {
               Passionate UI engineer looking bridge the gap between design and code
             </h5>
 
-            <div className="flex flex-col lg:flex-row mt-6 lg:mb-0 mb-6">
+            <div className="flex flex-col lg:flex-row mt-6 lg:mb-0 mb-6 gap-8">
+              <a
+                href="http://www.github.com/devshittu"
+                className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="w-5 h-5 mr-2"
+                >
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                <span className="flex-1 ml-3 whitespace-nowrap">Github</span>
+              </a>
               <a
                 target="_blank"
                 href="https://linkedin.com/in/muhammedshittu"
-                className="flex items-center font-normal rounded-lg"
+                className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
               >
                 <svg
-                  className="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="flex-shrink-0 w-6 h-6"
                 >
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
                 </svg>
                 <span className="flex-1 ml-3 whitespace-nowrap">LinkedIn</span>
               </a>
@@ -109,10 +137,7 @@ const Footer = () => {
                 <h4 className="block text-3xl font-bold mb-4">Contact</h4>
                 <ul className="list-unstyled">
                   <li>
-                    <a
-                      className="block pb-2"
-                      href={`mailto:${MY_CONTACT_EMAIL}`}
-                    >
+                    <a className="block pb-2" href={`mailto:${MY_CONTACT_EMAIL}`}>
                       Email Muhammed
                     </a>
                   </li>
