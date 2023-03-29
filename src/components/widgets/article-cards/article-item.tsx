@@ -7,10 +7,10 @@ type ArticleItemProps = {
   thumbnail?: any;
   title: string;
   description: string;
-  githubUrl: string;
+  githubUrl?: string;
   category?: string;
   tags?: string[];
-  liveUrl?: string;
+  liveUrl: string;
 };
 
 const ArticleItem = ({
@@ -52,8 +52,8 @@ const ArticleItem = ({
           </div>
           <div className="pt-4 pb-2">
             {' '}
-            <Link href={githubUrl}>Github Link</Link>
-            {liveUrl && <Link href={liveUrl}>Live Preview</Link>}
+            {githubUrl && <Link href={githubUrl}>Github Link</Link>}
+            {liveUrl && <Link href={liveUrl}>Read more</Link>}
           </div>
         </div>
       </div>
