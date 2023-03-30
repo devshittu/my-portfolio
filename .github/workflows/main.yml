@@ -1,6 +1,6 @@
 name: CI/CD
 on:
-  - push
+  - push
 jobs:
 # add jobs here
   code-checks:
