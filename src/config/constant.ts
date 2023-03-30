@@ -5,6 +5,12 @@ export const LINKEDIN_URL =
 export const MY_CONTACT_EMAIL = process.env.NEXT_MY_CONTACT_EMAIL || 'mshittu.work@gmail.com';
 export const MY_CALENDLY_URL =
   process.env.NEXT_MY_CALENDLY_URL || 'https://calendly.com/mshittuchat/meetme';
+export const MY_HASHNODE_BLOG_URL =
+  process.env.NEXT_MY_HASHNODE_BLOG_URL || 'https://mshittu.hashnode.dev';
+export const MY_RESUME_URL =
+  process.env.NEXT_MY_RESUME_URL ||
+  'https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing';
+export const MY_GITHUB_URL = process.env.NEXT_MY_GITHUB_URL || '"https://www.github.com/devshittu"';
 
 export const TOOLS_AND_SOFTWARES = [
   'React',

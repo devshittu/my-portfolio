@@ -1,6 +1,12 @@
 import { ReactNode } from 'react';
 
-import { MY_CALENDLY_URL, MY_CONTACT_EMAIL } from '@/config/constant';
+import {
+  MY_CALENDLY_URL,
+  MY_CONTACT_EMAIL,
+  MY_GITHUB_URL,
+  MY_HASHNODE_BLOG_URL,
+  MY_RESUME_URL,
+} from '@/config/constant';
 import { Link } from '@/components/link';
 import Image from 'next/image';
 import ThemeSwitch from '@/components/theme-switch/theme-switch';
@@ -53,14 +59,14 @@ const Header = () => {
               About
             </Link>
             <Link
-              href="https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing"
+              href={MY_RESUME_URL}
               className="py-[10px] px-[12px] sm:px-6 inline-flex items-center justify-center font-medium text-center focus:bg-primary"
             >
               {' '}
               Resume
             </Link>
             <Link
-              href="https://mshittu.hashnode.dev/"
+              href={MY_HASHNODE_BLOG_URL}
               className="!rounded-r-3xl py-[10px] px-[12px] sm:px-6 inline-flex 
             items-center justify-center font-medium  text-center focus:bg-primary "
             >
@@ -82,12 +88,13 @@ const Footer = () => {
           <div className="w-full lg:w-6/12 px-4 md:-ml-4">
             <h4 className="text-3xl font-bold block mb-4"> Muhammed Shittu</h4>
             <h5 className="text-lg mt-0 mb-2 md:w-9/12">
-              Passionate UI engineer looking bridge the gap between design and code
+              Passionate about collaborating with talented individuals to building outstanding
+              software.
             </h5>
 
             <div className="flex flex-col lg:flex-row mt-6 lg:mb-0 mb-6 gap-8">
               <a
-                href="http://www.github.com/devshittu"
+                href={MY_GITHUB_URL}
                 className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
               >
                 <svg
@@ -170,7 +177,7 @@ const Footer = () => {
           <div className="px-4 md:mx-auto md:mt-6">
             <div className="">
               All rights reserved © <span id="">2023</span>
-              <a href="#" className=" hover:text-gray-800" target="_blank">
+              <a href="/" className=" hover:text-cyan-400" target="_blank">
                 {' '}
                 Muhammed Shittu
               </a>
