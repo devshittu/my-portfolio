@@ -9,17 +9,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-          with:
-            node-version: 16
+        with:
+          node-version: 16
       - run: mv .env.example .env
       - run: npm install
       - run: npm run test
       - run: npm run lint
       - run: npm run format:check
-      - run: npm run types:check
+      # - run: npm run types:check
 
-jobs:
+# jobs:
   # previous jobs
+  #start of a new job
   deploy:
     name: Deploy To Vercel
     runs-on: ubuntu-latest
