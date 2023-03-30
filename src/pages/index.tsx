@@ -302,7 +302,7 @@ const Home = function () {
                 Over the years, I had the opportunity to work with various software, tools and
                 frameworks. Here are some of them:"
           >
-            <ul className="list-none flex flex-colx lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl md:text-3xl  text-cyan-800 dark:text-cyan-400">
+            <ul className="list-none flex lg:flex-row flex-wrap md:w-10/12 mt-4 -mx-4 text-3xl md:text-3xl  text-cyan-800 dark:text-cyan-400">
               {TOOLS_AND_SOFTWARES.map((tool, i) => (
                 <li key={i}>
                   <a target="_blank" className={`flex items-center font-normal rounded-lg`}>
