@@ -46,9 +46,9 @@ const ArticleItem = ({
 
           <p className="mt-2">{description}</p>
           <div className="pt-4 pb-2">
-            <Tag name="vite" />
-            <Tag name="ReactJs" />
-            <Tag name="VanillaJs" />
+            {tags?.map((tag, i) => (
+              <Tag key={i} name={tag} />
+            ))}
           </div>
           <div className="pt-4 pb-2">
             {' '}
