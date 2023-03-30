@@ -30,7 +30,8 @@ export const PublicLayout = ({ children }: PublicLayoutProps) => {
 const Header = () => {
   return (
     <header className=" w-full  relative">
-      <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg fixedx z-10x w-fullx">
+      {/* fixed z-10 w-full for fixed bar */}
+      <div className="bg-gradient-to-b from-sky-500/20 to-white/30x backdrop:blur-lg ">
         <nav className="mx-auto md:max-w-6xl py-2 md:py-16 flex justify-center md:justify-between">
           <div className="flex items-center">
             <Link href="/" className="">
