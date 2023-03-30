@@ -19,6 +19,7 @@ const ThemeSwitch = () => {
     <>
       <button
         onClick={() => (theme === THEME_DARK ? setTheme(THEME_LIGHT) : setTheme(THEME_DARK))}
+        aria-label="Theme"
         className={`p-3 sm:px-6x inline-flex items-center justify-center ${
           disabled ? 'hidden' : ''
         }`}
