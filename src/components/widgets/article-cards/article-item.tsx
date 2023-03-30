@@ -40,7 +40,7 @@ const ArticleItem = ({
               {/* <i className="fas fa-bullhorn mr-2"></i> */} {category}
             </div>
           )}
-          <a href="#" className="block mt-1 text-lgx hover:underline font-bold text-xl">
+          <a href={liveUrl} className="block mt-1 text-lgx hover:underline font-bold text-xl">
             {title}
           </a>
 
@@ -53,7 +53,7 @@ const ArticleItem = ({
           <div className="pt-4 pb-2">
             {' '}
             {githubUrl && <Link href={githubUrl}>Github Link</Link>}
-            {liveUrl && <Link href={liveUrl}>Read more</Link>}
+            {/* {liveUrl && <Link href={liveUrl}>Read more</Link>} */}
           </div>
         </div>
       </div>
