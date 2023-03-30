@@ -93,7 +93,7 @@ const Footer = () => {
               software.
             </h5>
 
-            <div className="flex flex-col lg:flex-row mt-6 lg:mb-0 mb-6 gap-8">
+            <div className="flex flex-wrap flex-row mt-6 lg:mb-0 mb-6 gap-8">
               <a
                 href={MY_GITHUB_URL}
                 className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
