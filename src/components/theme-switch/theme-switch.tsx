@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { THEME_DARK, THEME_LIGHT } from '@/config/constant';
+import Head from 'next/head';
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
@@ -17,6 +18,9 @@ const ThemeSwitch = () => {
 
   return (
     <>
+      <Head>
+        <meta name="theme-color" content={theme === THEME_DARK ? '#0C3251' : '#D5EFFF'} />
+      </Head>
       <button
         onClick={() => (theme === THEME_DARK ? setTheme(THEME_LIGHT) : setTheme(THEME_DARK))}
         aria-label="Theme"
