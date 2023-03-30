@@ -3,7 +3,15 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-import { MY_CONTACT_EMAIL, TOOLS_AND_SOFTWARES } from '@/config/constant';
+import {
+  MY_CONTACT_EMAIL,
+  MY_GITHUB_URL,
+  MY_HASHNODE_BLOG_URL,
+  MY_LINKEDIN_URL,
+  MY_RESUME_URL,
+  MY_TWITTER_URL,
+  TOOLS_AND_SOFTWARES,
+} from '@/config/constant';
 import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
@@ -47,7 +55,7 @@ const Home = function () {
 
                 <div className="flex flex-col lg:flex-row lg:mb-0 mb-6 gap-8">
                   <a
-                    href="http://www.github.com/devshittu"
+                    href={MY_GITHUB_URL}
                     className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
                   >
                     <svg
@@ -68,7 +76,7 @@ const Home = function () {
                   </a>
                   <a
                     target="_blank"
-                    href="https://linkedin.com/in/muhammedshittu"
+                    href={MY_LINKEDIN_URL}
                     className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
                   >
                     <svg
@@ -151,7 +159,7 @@ const Home = function () {
                 <div className="grid grid-cols-2 md:max-w-xs mt-10 lg:mb-0 mb-6 w-10/12 gap-10">
                   <a
                     target="_blank"
-                    href="https://linkedin.com/in/muhammedshittu"
+                    href={MY_LINKEDIN_URL}
                     className="flex items-center font-normal rounded-lg"
                   >
                     <svg
@@ -174,7 +182,7 @@ const Home = function () {
                   </a>
                   <a
                     target="_blank"
-                    href="https://twitter.com/devshittu"
+                    href={MY_TWITTER_URL}
                     className="flex items-center font-normal rounded-lg"
                   >
                     <svg
@@ -217,7 +225,7 @@ const Home = function () {
                   </a>
                   <a
                     target="_blank"
-                    href="https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing"
+                    href={MY_RESUME_URL}
                     className="flex items-center font-normal rounded-lg"
                   >
                     <svg
@@ -266,7 +274,7 @@ const Home = function () {
             <div>
               <ArticleItems />
               <Link
-                href="https://mshittu.hashnode.dev/"
+                href={MY_HASHNODE_BLOG_URL}
                 className=" font-semibold py-2 text-cyan-400  text-smx  mt-6 inline-flex items-center group"
               >
                 <p> View all </p>

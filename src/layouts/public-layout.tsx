@@ -5,6 +5,7 @@ import {
   MY_CONTACT_EMAIL,
   MY_GITHUB_URL,
   MY_HASHNODE_BLOG_URL,
+  MY_LINKEDIN_URL,
   MY_RESUME_URL,
 } from '@/config/constant';
 import { Link } from '@/components/link';
@@ -115,7 +116,7 @@ const Footer = () => {
               </a>
               <a
                 target="_blank"
-                href="https://linkedin.com/in/muhammedshittu"
+                href={MY_LINKEDIN_URL}
                 className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
               >
                 <svg

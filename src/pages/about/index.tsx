@@ -1,3 +1,4 @@
+import { MY_GITHUB_URL, MY_LINKEDIN_URL } from '@/config/constant';
 import { PublicLayout } from '@/layouts/public-layout';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -71,7 +72,7 @@ const AboutPage = () => {
               <dd className="mt-0.5 text-2xl font-semibold tracking-tight text-cyan-700">
                 <div className="flex flex-col lg:flex-row mt-6x lg:mb-0 mb-6 gap-8">
                   <a
-                    href="http://www.github.com/devshittu"
+                    href={MY_GITHUB_URL}
                     className="inline-flex  items-center py-3 hover:underline border border-transparent rounded-md"
                   >
                     <svg
@@ -92,7 +93,7 @@ const AboutPage = () => {
                   </a>
                   {/* <a
                     target="_blank"
-                    href="https://linkedin.com/in/muhammedshittu"
+                    href={MY_LINKEDIN_URL}
                     className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
                   >
                     <svg
@@ -112,7 +113,7 @@ const AboutPage = () => {
                       <circle cx="4" cy="4" r="2" />
                     </svg>
                     <span className="flex-1 ml-3 whitespace-nowrap">
-                      https://linkedin.com/in/muhammedshittu
+                      {MY_LINKEDIN_URL}
                     </span>
                   </a> */}
                 </div>
@@ -124,7 +125,7 @@ const AboutPage = () => {
                 <div className="flex flex-col lg:flex-row mt-6x lg:mb-0 mb-6 gap-8">
                   <a
                     target="_blank"
-                    href="https://linkedin.com/in/muhammedshittu"
+                    href={MY_LINKEDIN_URL}
                     className="inline-flex  items-center py-3 hover:underline border border-transparent rounded-md"
                   >
                     <svg
