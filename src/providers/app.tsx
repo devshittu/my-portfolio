@@ -12,7 +12,7 @@ export const AppProvider = ({ children, theme }: AppProviderProps) => {
   const online = useOnline();
   return (
     <ThemeProvider attribute="class" forcedTheme={theme || undefined}>
-      {`You are ${online ? 'online' : 'offline'}`}
+      {/* {`You are ${online ? 'online' : 'offline'}`} */}
       {children}
     </ThemeProvider>
   );
