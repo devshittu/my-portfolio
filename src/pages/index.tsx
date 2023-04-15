@@ -134,6 +134,7 @@ const Home = function () {
                   src={profilePhoto}
                   alt="me"
                   priority
+                  loading="eager"
                 />
               </div>
             </div>
