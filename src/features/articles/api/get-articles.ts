@@ -16,7 +16,7 @@ export const getArticles = ({ params }: GetArticlesOptions): Promise<Article[]> 
 
 export const useArticles = ({ params }: GetArticlesOptions) => {
   const { data, isFetching, isFetched } = useQuery({
-    queryKey: ['Articles', params],
+    queryKey: ['articles', params],
     queryFn: () => getArticles({ params }),
     enabled: !!params.postId,
     initialData: [],
