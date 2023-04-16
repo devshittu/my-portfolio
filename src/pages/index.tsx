@@ -10,15 +10,18 @@ import {
   MY_LINKEDIN_URL,
   MY_RESUME_URL,
   MY_TWITTER_URL,
+  RECENT_ARTICLES_LIMIT,
   TOOLS_AND_SOFTWARES,
 } from '@/config/constant';
 import { ReactElement } from 'react';
 import { PublicLayout } from '@/layouts/public-layout';
 import { Link } from '@/components/link';
 import profilePhoto from '../../public/me.jpeg';
-import ArticleItems from '@/components/widgets/article-cards/article-items';
+// import ArticleItems from '@/components/widgets/article-cards/article-items';
+import { ArticlesList } from '@/features/articles/components/articles-list';
 import { ProjectItems } from '@/components/widgets/project-cards';
 import { AppSection } from '@/components/widgets/home/app-section';
+import RecentArticles from '@/components/widgets/home/recent-articles/recent-articles';
 
 const Home = function () {
   return (
@@ -276,7 +279,8 @@ const Home = function () {
                 and build better apps. Check out some of my articles below and share with others."
           >
             <div>
-              <ArticleItems />
+              <RecentArticles count={RECENT_ARTICLES_LIMIT} />
+              {/* <ArticlesList /> */}
               <Link
                 href={MY_HASHNODE_BLOG_URL}
                 className=" font-semibold py-2 text-cyan-400  text-smx  mt-6 inline-flex items-center group"
