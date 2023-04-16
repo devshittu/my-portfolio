@@ -6,7 +6,6 @@ import React, { ReactNode } from 'react';
 const ArticlesPage = () => {
   const { data, error, isLoading, isSuccess } = useArticles();
 
-
   if (isLoading) return <div>Loading</div>;
 
   return (
