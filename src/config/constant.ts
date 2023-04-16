@@ -1,5 +1,8 @@
 export const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
-export const HASHNODE_API_URL = process.env.NEXT_PUBLIC_HASHNODE_API_URL as string;
+export const HASHNODE_API_URL = (process.env.NEXT_PUBLIC_HASHNODE_API_URL ||
+  'https://api.hashnode.com/v1/graphql') as string;
+export const HASHNODE_API_GRAPHQL_URL = (process.env.NEXT_PUBLIC_HASHNODE_API_GRAPHQL_URL ||
+  'https://api.hashnode.com/v1/graphql') as string;
 export const HASHNODE_API_KEY = process.env.HASHNODE_API_KEY as string;
 
 export const MY_TWITTER_URL =
