@@ -1,6 +1,8 @@
 export const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 export const HASHNODE_API_URL = (process.env.NEXT_PUBLIC_HASHNODE_API_URL ||
-  'https://api.hashnode.com/v1/graphql') as string;
+  'https://api.hashnode.com/') as string;
+export const MY_HASHNODE_USERNAME = (process.env.NEXT_PUBLIC_MY_HASHNODE_USERNAME ||
+  'mshittu') as string;
 export const HASHNODE_API_GRAPHQL_URL = (process.env.NEXT_PUBLIC_HASHNODE_API_GRAPHQL_URL ||
   'https://api.hashnode.com/v1/graphql') as string;
 export const HASHNODE_API_KEY = process.env.HASHNODE_API_KEY as string;
@@ -14,7 +16,7 @@ export const MY_CONTACT_EMAIL =
 export const MY_CALENDLY_URL =
   process.env.NEXT_PUBLIC_MY_CALENDLY_URL || 'https://calendly.com/mshittuchat/meetme';
 export const MY_HASHNODE_BLOG_URL =
-  process.env.NEXT_PUBLIC_MY_HASHNODE_BLOG_URL || 'https://mshittu.hashnode.dev';
+  process.env.NEXT_PUBLIC_MY_HASHNODE_BLOG_URL || 'https://mshittu.hashnode.dev/';
 export const MY_RESUME_URL =
   process.env.NEXT_PUBLIC_MY_RESUME_URL ||
   'https://docs.google.com/document/d/1WOsxNJLQLqStUsZTphEbkPy9QMVdVroWhsPnbqzarjk/edit?usp=sharing';
@@ -40,3 +42,5 @@ export const TOOLS_AND_SOFTWARES = [
 
 export const THEME_DARK = 'dark';
 export const THEME_LIGHT = 'light';
+
+export const RECENT_ARTICLES_LIMIT = 2;
