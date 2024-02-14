@@ -1,53 +1,63 @@
-import { gql } from 'graphql-request';
-import { apiClient, graphQLClient } from '@/libs/api-client';
-import { Article } from '../types';
+import { apiClient } from '@/libs/api-client';
+import { ArticleNode, Edge, GetArticlesResponse } from '../types';
 import { useQuery } from '@tanstack/react-query';
-import { MY_HASHNODE_USERNAME } from '@/config/constant';
+import { MY_HASHNODE_HOST } from '@/config/constant';
 
-type GetArticlesOptions = {
-  params?: {
-    query?: string | undefined;
-  };
-
-  limit?: number | undefined;
-};
-
-export const getArticles = async (limit?: number): Promise<Article[]> => {
+// Define the getArticles function with TypeScript
+export const getArticles = async (limit?: number): Promise<ArticleNode[]> => {
   const queryQL = `
-    {
-      user(username: "${MY_HASHNODE_USERNAME}") {
-        publication {
-          posts(page: 0) {
-            _id
-            title
-            brief
-            coverImage
-            slug
-            dateAdded
+    query Publication {
+      publication(host: "${MY_HASHNODE_HOST}") {
+        isTeam
+        title
+        posts(first: 10) {
+          edges {
+            node {
+              title
+              brief
+              url
+              id
+              coverImage {
+                url
+              }
+              slug
+              publishedAt
+              author {
+                id
+                username
+                name
+                profilePicture
+                followersCount
+                tagline
+                bio {
+                  text
+                }
+                location
+              }
+            }
           }
         }
       }
     }
   `;
-  const getArticleList = await apiClient.get('/', {
+  const getArticleList = await apiClient.get<GetArticlesResponse>('/', {
     params: {
       query: queryQL,
     },
   });
-  // return getArticleList.data.user.publication.posts;
 
-  let articles = getArticleList.data.user.publication.posts;
+  let articles = getArticleList.data.publication.posts.edges.map((edge: Edge) => edge.node);
   if (limit !== undefined && limit !== null) {
     articles = articles.slice(0, limit); // only return the first 'limit' articles
   }
   return articles;
 };
 
+// Usage with @tanstack/react-query
 export const useArticles = (limit?: number) => {
-  const { data, isFetching, isFetched, error, isSuccess } = useQuery({
+  const { data, isFetching, isFetched, error, isSuccess } = useQuery<ArticleNode[], Error>({
     queryKey: ['articles'],
     queryFn: () => getArticles(limit),
-    // enabled: !!params.postId,
     initialData: [],
   });
   return {
