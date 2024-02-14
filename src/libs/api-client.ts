@@ -1,13 +1,12 @@
-import { GraphQLClient, gql } from 'graphql-request';
 import axios from 'axios';
 
-import { HASHNODE_API_URL, HASHNODE_API_GRAPHQL_URL } from '@/config/constant';
+import { HASHNODE_API_URL } from '@/config/constant';
 
 export const apiClient = axios.create({
   baseURL: HASHNODE_API_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${process.env.HASHNODE_API_KEY}`,
+    Authorization: `${process.env.HASHNODE_API_KEY}`,
   },
 });
 
@@ -19,9 +18,3 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-export const graphQLClient = new GraphQLClient(HASHNODE_API_GRAPHQL_URL, {
-  headers: {
-    Authorization: `Bearer ${process.env.HASHNODE_API_KEY}`,
-    'Content-Type': 'application/json',
-  },
-});
