@@ -2,21 +2,11 @@ import { Link } from '@/components/link';
 import { Tag } from '@/components/tag';
 import Image from 'next/image';
 import React from 'react';
-import { Article } from '@/features/articles/types';
+import { ArticleNode } from '@/features/articles/types';
 import { HASHNODE_API_URL, MY_HASHNODE_BLOG_URL } from '@/config/constant';
 
-// type ArticleItemType = {
-//   thumbnail?: any;
-//   title: string;
-//   description: string;
-//   githubUrl?: string;
-//   category?: string;
-//   tags?: string[];
-//   liveUrl: string;
-// };
-
 type ArticleItemProps = {
-  data: Article;
+  data: ArticleNode;
 };
 
 const ArticleItem = ({ data }: ArticleItemProps) => {
@@ -26,7 +16,7 @@ const ArticleItem = ({ data }: ArticleItemProps) => {
         <div className="md:flex-shrink-0">
           <Image
             className="rounded-lg w-[100vw] md:w-56 h-48 object-cover"
-            src={data.coverImage || 'https://dummyimage.com/224x170/F3F4F7/8693ac'}
+            src={data.coverImage?.url || 'https://dummyimage.com/224x170/F3F4F7/8693ac'}
             alt={data.title}
             width={224}
             height={170}
