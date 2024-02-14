@@ -1,9 +1,9 @@
 import React from 'react';
-import { Article } from '../../types';
+import { ArticleNode } from '../../types';
 import ArticleItem from './article-item';
 
 export type ArticlesListProps = {
-  articles: Article[];
+  articles: ArticleNode[];
   isLoading?: boolean;
 };
 
