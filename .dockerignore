@@ -1,0 +1,11 @@
+.git
+node_modules
+.next
+Dockerfile
+Dockerfile.dev
+docker-compose*
+*.log
+.env.local
+.env.development
+.env.test
+
