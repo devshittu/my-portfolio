@@ -46,3 +46,4 @@ export const Link = ({
     </NextLink>
   );
 };
+// src/components/link/link.tsx
