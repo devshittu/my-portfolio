@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+// src/pages/index.tsx
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -19,9 +20,9 @@ import { Link } from '@/components/link';
 import profilePhoto from '../../public/me.jpeg';
 // import ArticleItems from '@/components/widgets/article-cards/article-items';
 import { ArticlesList } from '@/features/articles/components/articles-list';
-import { ProjectItems } from '@/components/widgets/project-cards';
 import { AppSection } from '@/components/widgets/home/app-section';
 import RecentArticles from '@/components/widgets/home/recent-articles/recent-articles';
+import RecentProjects from '@/components/widgets/home/recent-projects/recent-projects'; // <--- NEW IMPORT
 
 const Home = function () {
   return (
@@ -40,10 +41,6 @@ const Home = function () {
           <section>
             <div className="container md:max-w-6xl flex flex-col items-center py-10 md:py-16 mx-auto md:flex-row">
               <div className="flex flex-col items-start text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 animate-slide-in-left">
-                {/* <h2 className="mb-8 text-xs font-semibold tracking-widest uppercase title-font">
-                {' '}
-                Hi, I &apos;m{' '}
-              </h2> */}
                 <h1 className="mb-4 md:mb-8 text-5xl font-black tracking-tighter md:text-8xl">
                   Muhammed Shittu{' '}
                 </h1>
@@ -104,30 +101,6 @@ const Home = function () {
                     <span className="flex-1 ml-3 whitespace-nowrap">LinkedIn</span>
                   </a>
                 </div>
-                {/* <div className="flex flex-col justify-center lg:flex-row ">
-                  <Link
-                    href="#"
-                    text="LinkedIn"
-                    icon={
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="flex-shrink-0 w-6 h-6 transition duration-75"
-                      >
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                        <rect x="2" y="9" width="4" height="12" />
-                        <circle cx="4" cy="4" r="2" />
-                      </svg>
-                    }
-                  />
-                </div> */}
               </div>
               <div className="w-full lg:w-1/3 lg:max-w-lg md:w-1/2 hidden md:block  animate-swing-in-right-fwd">
                 <Image
@@ -159,7 +132,7 @@ const Home = function () {
               </div>
               <div className=" w-full md:w-5/12 text-lg md:text-xl leading-relaxed text-justify">
                 <p>
-                  A dynamic engineer with 2 years of experience building outstanding web
+                  A dynamic engineer with 5 years of experience building outstanding web
                   applications and optimizing code for peak performance, proficient in a wide range
                   of languages and frameworks.
                 </p>{' '}
@@ -259,16 +232,14 @@ const Home = function () {
               </div>
             </div>
           </section>
-
-          <AppSection
-            title="Projects"
+          {/* Recent Projects Section */}
+          <RecentProjects
             description="
           My work largely revolves on the front-end with Vue/Nuxt.js, React/Next.js & TypeScript,
           Backend with and Node.js, Laravel and Django. Here are some of the projects I have worked
           on to showcase my skills:"
-          >
-            <ProjectItems />
-          </AppSection>
+          />{' '}
+          {/* <--- NEW COMPONENT USAGE */}
           {/* Articles */}
           <AppSection
             title="Articles I've written"
@@ -320,34 +291,6 @@ const Home = function () {
               ))}
             </ul>
           </AppSection>
-          {/* Subscribe */}
-          {/* <!-- COMPONENT CODE --> */}
-          {/* <section className="w-full rounded-lg">
-            <div className="md:mx-auto py-24  border-t border-slate-300">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div className=" ">
-                  <h1 className="font-bold text-4xl">Stay up to date </h1>
-                  <p className="text-lg mt-8">
-                    Get emails from me about web development, tech, and early access to new
-                    projects.
-                  </p>
-                </div>
-                <div className="md:py-2 md:mx-4 lg:py-10">
-                  <div className="grid w-80 grid-rows-2 gap-1">
-                    <input
-                      type="text"
-                      className="h-14 w-full rounded border p-4 bg-transparent"
-                      placeholder="Your email"
-                    />
-                    <button className="rounded bg-cyan-600 h-14">
-                      Subscribe to the newsletter
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> */}
-          {/* <!-- COMPONENT CODE --> */}
         </div>
       </main>
     </>

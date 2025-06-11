@@ -18,3 +18,5 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+// src/libs/api-client.ts

@@ -16,6 +16,12 @@ const nextConfig = {
         port: '',
         pathname: '/**/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com', // Add this line
+        port: '',
+        pathname: '/**/*',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
