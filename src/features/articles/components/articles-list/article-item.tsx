@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCalendar, FiClock } from 'react-icons/fi';
+import { FiArrowRight, FiCalendar, FiClock, FiFileText } from 'react-icons/fi';
 import { ArticleNode } from '@/features/articles/types';
 import { MY_HASHNODE_BLOG_URL } from '@/config/constant';
 
@@ -45,20 +45,46 @@ const ArticleItem = ({ data }: ArticleItemProps) => {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="relative overflow-hidden rounded-lg"
+              className="relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900"
             >
-              <Image
-                className="w-full h-44 object-cover rounded-lg"
-                src={data.coverImage?.url || 'https://dummyimage.com/224x170/E2E8F0/64748B'}
-                alt={data.title}
-                width={224}
-                height={170}
-              />
-              {/* Subtle Accent Line - Bottom */}
-              <div className="absolute bottom-0 left-0 w-1/4 h-1 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+              {data.coverImage?.url ? (
+                <>
+                  <Image
+                    className="w-full h-44 object-cover rounded-lg"
+                    src={data.coverImage.url}
+                    alt={data.title}
+                    width={224}
+                    height={170}
+                  />
+                  {/* Subtle Accent Line - Bottom */}
+                  <div className="absolute bottom-0 left-0 w-1/4 h-1 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
 
-              {/* Subtle Accent Line - Right */}
-              <div className="absolute top-0 right-0 w-1 h-1/4 bg-gradient-to-b from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+                  {/* Subtle Accent Line - Right */}
+                  <div className="absolute top-0 right-0 w-1 h-1/4 bg-gradient-to-b from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+                </>
+              ) : (
+                // Beautiful Placeholder with Icon
+                <div className="w-full h-44 flex items-center justify-center relative">
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 1px, transparent 10px)`,
+                      }}
+                    ></div>
+                  </div>
+
+                  {/* Icon */}
+                  <FiFileText className="w-16 h-16 text-slate-400 dark:text-slate-500 relative z-10" />
+
+                  {/* Subtle Accent Line - Bottom */}
+                  <div className="absolute bottom-0 left-0 w-1/4 h-1 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+
+                  {/* Subtle Accent Line - Right */}
+                  <div className="absolute top-0 right-0 w-1 h-1/4 bg-gradient-to-b from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+                </div>
+              )}
             </motion.div>
           </div>
 
