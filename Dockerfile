@@ -1,37 +1,101 @@
-# STAGE 1: Build
-FROM node:18-alpine as builder
+FROM node:20-alpine AS base
 
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+    if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
 
-# Copy source code
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build Next.js app
-RUN yarn build
+# Disable telemetry during build
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# STAGE 2: Runtime
-FROM node:22-alpine
+RUN \
+    if [ -f yarn.lock ]; then yarn build; \
+    elif [ -f package-lock.json ]; then npm run build; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm build; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
 
+# Production image, copy all the files and run next
+FROM base AS runner
 WORKDIR /app
 
-# Minimal dependencies
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/yarn.lock ./
-RUN yarn install --production --frozen-lockfile
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
-# Copy built artifacts
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
 
-# Optional: Install sharp dependencies (if used)
-RUN apk add --no-cache vips-dev fftw-dev
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
 
-# Run the app
+# Automatically leverage output traces to reduce image size
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
-CMD ["yarn", "start"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+
+CMD ["node", "server.js"]
+
+# # STAGE 1: Build
+# FROM node:18-alpine as builder
+
+# WORKDIR /app
+
+# # Install dependencies
+# COPY package.json yarn.lock ./
+# RUN yarn install --frozen-lockfile
+
+# # Copy source code
+# COPY . .
+
+# # Build Next.js app
+# RUN yarn build
+
+# # STAGE 2: Runtime
+# FROM node:22-alpine
+
+# WORKDIR /app
+
+# # Minimal dependencies
+# COPY --from=builder /app/package.json ./
+# COPY --from=builder /app/yarn.lock ./
+# RUN yarn install --production --frozen-lockfile
+
+# # Copy built artifacts
+# COPY --from=builder /app/public ./public
+# COPY --from=builder /app/.next ./.next
+
+# # Optional: Install sharp dependencies (if used)
+# RUN apk add --no-cache vips-dev fftw-dev
+
+# # Run the app
+# EXPOSE 3000
+# CMD ["yarn", "start"]
 
 # Dockerfile
