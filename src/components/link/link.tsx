@@ -12,7 +12,7 @@ export type LinkProps = {
   href: string;
   text?: string;
   children?: ReactNode;
-  icon?: ReactElement;
+  icon?: React.ReactElement | React.JSX.Element;
   shallow?: boolean;
   className?: string;
   size?: keyof typeof sizes;
