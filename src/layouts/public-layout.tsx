@@ -212,4 +212,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};// src/layouts/public-layout.tsx
+}; // src/layouts/public-layout.tsx
