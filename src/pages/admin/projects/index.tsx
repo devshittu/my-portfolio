@@ -18,6 +18,7 @@ import {
   FiTag,
 } from 'react-icons/fi';
 import { PublicLayout } from '@/layouts/public-layout';
+import Image from 'next/image';
 
 type NotificationType = 'success' | 'error' | 'warning' | 'info';
 
@@ -241,10 +242,12 @@ const ProjectsPage = () => {
                 {/* Project Thumbnail */}
                 <div className="relative h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
                   {project.thumbnail ? (
-                    <img
+                    <Image
                       src={project.thumbnail}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
                     <FiPackage className="w-16 h-16 text-slate-400 dark:text-slate-500" />
@@ -380,7 +383,6 @@ const ProjectsPage = () => {
     </div>
   );
 };
-
 
 ProjectsPage.getLayout = function getLayout(page: ReactElement) {
   return <PublicLayout>{page}</PublicLayout>;

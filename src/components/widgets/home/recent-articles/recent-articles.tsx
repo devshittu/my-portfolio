@@ -37,4 +37,3 @@ const RecentArticles = ({ count }: RecentArticlesProps) => {
 };
 
 export default RecentArticles;
-

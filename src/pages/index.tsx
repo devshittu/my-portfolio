@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 // src/pages/index.tsx
 import Head from 'next/head';
 import Image from 'next/image';

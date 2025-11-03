@@ -1,16 +1,18 @@
 // src/components/theme-switch/theme-switch.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { THEME_DARK, THEME_LIGHT } from '@/config/constant';
 import Head from 'next/head';
 
 const ThemeSwitch = () => {
+  // Initialize mounted state as false - no useEffect needed
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme, forcedTheme } = useTheme();
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(() => {
+  // Set mounted to true on first render (client-side only)
+  React.useEffect(() => {
     setMounted(true);
   }, []);
 
@@ -85,4 +87,5 @@ const ThemeSwitch = () => {
 };
 
 export default ThemeSwitch;
+
 // src/components/theme-switch/theme-switch.tsx

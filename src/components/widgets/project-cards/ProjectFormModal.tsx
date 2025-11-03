@@ -1,5 +1,5 @@
 // src/components/widgets/project-cards/ProjectFormModal.tsx
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useMemo, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { ProjectItem } from '@/types/project';
 import {
@@ -20,13 +20,19 @@ type ProjectFormModalProps = {
   initialData?: ProjectItem | null;
 };
 
-export const ProjectFormModal = ({
-  isOpen,
-  onClose,
-  onSubmit,
-  initialData,
-}: ProjectFormModalProps) => {
-  const [formData, setFormData] = useState<Omit<ProjectItem, 'id'>>({
+const getInitialFormData = (initialData?: ProjectItem | null): Omit<ProjectItem, 'id'> => {
+  if (initialData) {
+    return {
+      title: initialData.title || '',
+      description: initialData.description || '',
+      githubUrl: initialData.githubUrl || '',
+      thumbnail: initialData.thumbnail || '',
+      category: initialData.category || '',
+      tags: initialData.tags || [],
+      liveUrl: initialData.liveUrl || '',
+    };
+  }
+  return {
     title: '',
     description: '',
     githubUrl: '',
@@ -34,33 +40,28 @@ export const ProjectFormModal = ({
     category: '',
     tags: [],
     liveUrl: '',
-  });
+  };
+};
+
+export const ProjectFormModal = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  initialData,
+}: ProjectFormModalProps) => {
+  // Derive initial state from props - no useEffect needed
+  const initialFormState = useMemo(() => getInitialFormData(initialData), [initialData]);
+
+  const [formData, setFormData] = useState<Omit<ProjectItem, 'id'>>(initialFormState);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        title: initialData.title || '',
-        description: initialData.description || '',
-        githubUrl: initialData.githubUrl || '',
-        thumbnail: initialData.thumbnail || '',
-        category: initialData.category || '',
-        tags: initialData.tags || [],
-        liveUrl: initialData.liveUrl || '',
-      });
-    } else {
-      setFormData({
-        title: '',
-        description: '',
-        githubUrl: '',
-        thumbnail: '',
-        category: '',
-        tags: [],
-        liveUrl: '',
-      });
+  // Reset form when modal opens or initialData changes
+  React.useEffect(() => {
+    if (isOpen) {
+      setFormData(getInitialFormData(initialData));
+      setErrors({});
     }
-    setErrors({});
-  }, [initialData, isOpen]);
+  }, [isOpen, initialData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -369,4 +370,4 @@ export const ProjectFormModal = ({
   );
 };
 
-// src/components/ProjectFormModal.tsx
+// src/components/widgets/project-cards/ProjectFormModal.tsx
