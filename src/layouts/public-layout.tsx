@@ -198,13 +198,13 @@ const Footer = () => {
           <div className="px-4 md:mx-auto md:mt-6">
             <div className="text-slate-600 dark:text-slate-400">
               All rights reserved © <span id="">2025</span>
-              <a
+              <Link
                 href="/"
                 className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
               >
                 {' '}
                 Muhammed Shittu
-              </a>
+              </Link>
               .
             </div>
           </div>
