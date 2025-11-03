@@ -24,6 +24,11 @@ const nextConfig = {
       },
     ],
   },
+
+  // Enable standalone output for Docker
+  output: 'standalone',
+  // Add this to silence the Turbopack error
+  turbopack: {},
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.optimization.minimizer.forEach((minimizer) => {

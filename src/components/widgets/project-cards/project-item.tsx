@@ -1,8 +1,12 @@
 // src/components/widgets/project-cards/project-item.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { FiPackage, FiGithub, FiExternalLink, FiMaximize2, FiTag } from 'react-icons/fi';
 import { ProjectItem as ProjectType } from '@/types/project';
-import { FiPackage } from 'react-icons/fi'; // You will need to install react-icons: npm install react-icons
+import { IconLink } from '@/components/ui/icon-link';
+import { ImagePreviewModal } from '@/components/ui/image-preview-modal';
+import { logger } from '@/libs/logger';
 
 export type ProjectItemProps = ProjectType;
 
@@ -15,187 +19,124 @@ export const ProjectItem = ({
   category,
   tags,
 }: ProjectItemProps) => {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
+  const handleImageClick = () => {
+    if (thumbnail) {
+      logger.debug(`[ProjectItem] Opening preview for: ${title}`);
+      setIsPreviewOpen(true);
+    }
+  };
+
   return (
-    <div className="lg:grid lg:grid-cols-2 mb-16">
-      <div className="py-8x max-w-3xl lg:max-w-md">
-        <h2 className="text-lg lg:text-xl tracking-tight font-bold">
-          <span className="block">{title}</span>
-        </h2>
-        <p className="mt-5 md:h-48 md:overflow-y-auto md:overflow-hidden">{description}</p>
-        <div className="inline-flex mt-5 font-medium gap-4">
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex  items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 mr-2"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-              View on Github
-            </a>
+    <>
+      <div className="lg:grid lg:grid-cols-2 gap-8 mb-16">
+        {/* Content Section */}
+        <div className="flex flex-col justify-center">
+          <div className="flex items-center gap-3 mb-4">
+            <h2 className="text-2xl lg:text-3xl tracking-tight font-bold text-slate-900 dark:text-slate-100">
+              {title}
+            </h2>
+            {category && (
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 rounded-full text-xs font-semibold">
+                <FiTag className="w-3 h-3" />
+                {category}
+              </span>
+            )}
+          </div>
+
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{description}</p>
+
+          {/* Tags */}
+          {tags && tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-sm border border-slate-200 dark:border-slate-700"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center py-3  hover:underline text-cyan-500 font-medium border border-transparent rounded-md"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 mr-2"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              Live Preview
-            </a>
-          )}
+
+          {/* Action Links */}
+          <div className="inline-flex gap-4 font-medium">
+            {githubUrl && <IconLink href={githubUrl} icon={FiGithub} label="View on Github" />}
+            {liveUrl && <IconLink href={liveUrl} icon={FiExternalLink} label="Live Preview" />}
+          </div>
         </div>
+
+        {/* Image Frame Section with Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative group"
+        >
+          <div className="bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700/50 shadow-xl rounded-xl overflow-hidden">
+            {/* Decorative Frame Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent pointer-events-none"></div>
+
+            <div className="relative p-4 lg:p-6">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="relative bg-slate-200 dark:bg-slate-900 rounded-lg overflow-hidden cursor-pointer"
+                onClick={handleImageClick}
+              >
+                {thumbnail ? (
+                  <>
+                    <Image
+                      src={thumbnail}
+                      alt={title}
+                      width={1260}
+                      height={750}
+                      className="w-full h-64 lg:h-80 object-cover object-center"
+                    />
+                    {/* Overlay on Hover */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center"
+                    >
+                      <motion.div
+                        initial={{ scale: 0.8 }}
+                        whileHover={{ scale: 1 }}
+                        className="flex flex-col items-center gap-2 text-white"
+                      >
+                        <FiMaximize2 className="w-12 h-12" />
+                        <span className="text-sm font-semibold">Click to preview</span>
+                      </motion.div>
+                    </motion.div>
+                  </>
+                ) : (
+                  <div className="w-full h-64 lg:h-80 flex items-center justify-center">
+                    <FiPackage className="text-slate-400 dark:text-slate-600 w-24 h-24 lg:w-32 lg:h-32" />
+                  </div>
+                )}
+              </motion.div>
+            </div>
+
+            {/* Bottom Accent Line */}
+            <div className="h-1 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500"></div>
+          </div>
+        </motion.div>
       </div>
-      {/* Updated framing for modern, dimmer look adapting to themes */}
-      <div className="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg rounded-lg overflow-hidden lg:grid lg:grid-cols-1">
-        <div className="lg:relative lg:mt-16 lg:ml-16 z-10 flex items-center justify-center bg-slate-200 dark:bg-slate-900">
-          {thumbnail ? (
-            <Image
-              className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
-              src={thumbnail}
-              alt={title}
-              width={1260}
-              height={750}
-            />
-          ) : (
-            // @ts-ignore
-            // Updated fallback icon styling for dimmer accent and modern look
-            <FiPackage className="text-slate-400 dark:text-slate-500 w-24 h-24 lg:w-48 lg:h-48" />
-          )}
-        </div>
-      </div>
-    </div>
+
+      {/* Preview Modal */}
+      {thumbnail && (
+        <ImagePreviewModal
+          isOpen={isPreviewOpen}
+          onClose={() => setIsPreviewOpen(false)}
+          imageUrl={thumbnail}
+          title={title}
+        />
+      )}
+    </>
   );
 };
 
-// // src/components/widgets/project-cards/project-item.tsx
-// import React from 'react';
-// import Image from 'next/image';
-// import { ProjectItem as ProjectType } from '@/types/project';
-// import { FiPackage } from 'react-icons/fi';
-// // Import the new IconWrapper component
-// import IconWrapper from '@/components/ui/IconWrapper';
-
-// export type ProjectItemProps = ProjectType;
-
-// export const ProjectItem = ({
-//   thumbnail,
-//   title,
-//   description,
-//   githubUrl,
-//   liveUrl,
-//   category,
-//   tags,
-// }: ProjectItemProps) => {
-//   return (
-//     <div className="lg:grid lg:grid-cols-2 mb-16">
-//       <div className="py-8x max-w-3xl lg:max-w-md">
-//         <h2 className="text-lg lg:text-xl tracking-tight font-bold">
-//           <span className="block">{title}</span>
-//         </h2>
-//         <p className="mt-5 md:h-48 md:overflow-y-auto md:overflow-hidden">{description}</p>
-//         <div className="inline-flex mt-5 font-medium gap-4">
-//           {githubUrl && (
-//             <a
-//               href={githubUrl}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="inline-flex items-center py-3 hover:underline text-cyan-500 border border-transparent rounded-md"
-//             >
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 width="24"
-//                 height="24"
-//                 viewBox="0 0 24 24"
-//                 fill="none"
-//                 stroke="currentColor"
-//                 strokeWidth="2"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 className="w-5 h-5 mr-2"
-//               >
-//                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-//               </svg>
-//               View on Github
-//             </a>
-//           )}
-//           {liveUrl && (
-//             <a
-//               href={liveUrl}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="inline-flex items-center py-3 hover:underline text-cyan-500 font-medium border border-transparent rounded-md"
-//             >
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 width="24"
-//                 height="24"
-//                 viewBox="0 0 24 24"
-//                 fill="none"
-//                 stroke="currentColor"
-//                 strokeWidth="2"
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 className="w-5 h-5 mr-2"
-//               >
-//                 <circle cx="12" cy="12" r="10" />
-//                 <line x1="2" y1="12" x2="22" y2="12" />
-//                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-//               </svg>
-//               Live Preview
-//             </a>
-//           )}
-//         </div>
-//       </div>
-//       <div className="bg-slate-700 lg:grid lg:grid-cols-1 rounded-lg">
-//         <div className="lg:relative lg:mt-16 lg:ml-16 bg-slate-700x z-10 flex items-center justify-center">
-//           {thumbnail ? (
-//             <Image
-//               className="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
-//               src={thumbnail}
-//               alt={title}
-//               width={1260}
-//               height={750}
-//             />
-//           ) : (
-//             // Use the new IconWrapper component for FiPackage
-//             <IconWrapper
-//               icon={FiPackage}
-//               className="text-slate-400 dark:text-slate-500 w-24 h-24 lg:w-48 lg:h-48"
-//             />
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 // src/components/widgets/project-cards/project-item.tsx
