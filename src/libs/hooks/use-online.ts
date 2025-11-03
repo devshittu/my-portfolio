@@ -1,13 +1,19 @@
+// src/libs/hooks/use-online.ts
 import { useEffect, useState } from 'react';
 
+// Helper function to get initial online status
+const getInitialOnlineStatus = (): boolean => {
+  if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+    return (navigator as NavigatorOnLine).onLine;
+  }
+  return false;
+};
+
 const useOnline = (): boolean => {
-  const [online, setOnline] = useState<boolean>(false);
+  // Initialize with actual online status - no setState in effect needed
+  const [online, setOnline] = useState<boolean>(getInitialOnlineStatus);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-      setOnline((navigator as NavigatorOnLine).onLine);
-    }
-
     const handleOnline = () => setOnline(true);
     const handleOffline = () => setOnline(false);
 
@@ -29,3 +35,4 @@ const useOnline = (): boolean => {
 };
 
 export default useOnline;
+// src/libs/hooks/use-online.ts
