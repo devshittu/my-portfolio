@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import NextLink from 'next/link';
 import { text } from 'stream/consumers';
 
@@ -12,7 +12,7 @@ export type LinkProps = {
   href: string;
   text?: string;
   children?: ReactNode;
-  icon?: JSX.Element;
+  icon?: ReactElement;
   shallow?: boolean;
   className?: string;
   size?: keyof typeof sizes;
