@@ -1,3 +1,5 @@
+// src/types/fcp.ts
+
 /**
  * Central type definitions for the Floating Control Panel
  * Ensures type consistency across the application
@@ -27,7 +29,7 @@ export type PanelPosition =
 /**
  * Visual variant for action buttons
  */
-export type ActionVariant = 'default' | 'primary' | 'danger';
+export type ActionVariant = 'default' | 'primary' | 'success' | 'danger';
 
 /**
  * Configuration for a single control action
@@ -132,14 +134,21 @@ export interface ActionButtonProps {
 /**
  * Configuration object for position styles
  */
-export type PositionConfig = Record<PanelPosition, string>;
+export type PositionConfig = {
+  [K in PanelPosition]: string;
+};
 
 /**
  * Configuration object for size styles
  */
-export type SizeConfigMap = Record<PanelSize, SizeConfig>;
+export type SizeConfigMap = {
+  [K in PanelSize]: SizeConfig;
+};
 
 /**
  * Configuration object for variant styles
  */
-export type VariantConfig = Record<ActionVariant, string>;
+export type VariantConfig = {
+  [K in ActionVariant]: string;
+};
+// src/types/fcp.ts
