@@ -18,18 +18,23 @@ import {
   FiMoon,
 } from 'react-icons/fi';
 
+// Helper to get initial mounted state
+const getInitialMounted = () => false;
+
 export default function AdvancedExample() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(getInitialMounted);
   const [cartCount, setCartCount] = useState(3);
   const [messageCount, setMessageCount] = useState(5);
   const [notificationCount, setNotificationCount] = useState(12);
   const [isFavorited, setIsFavorited] = useState(false);
 
+  // Set mounted after initial render
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Simulate real-time updates
   useEffect(() => {
     const interval = setInterval(() => {
       if (Math.random() > 0.7) {
@@ -246,7 +251,7 @@ export default function AdvancedExample() {
 
       {/* Horizontal panel - bottom right - PILL shape */}
       <FloatingControlPanel
-        size="lg"
+        size="sm"
         position="bottom-right"
         orientation="horizontal"
         shape="pill"
@@ -270,18 +275,6 @@ export default function AdvancedExample() {
       <FloatingControlPanel
         size="md"
         position="top-left"
-        orientation="vertical"
-        shape="pill"
-        actions={settingsActions}
-        collapsible={true}
-        closable={false}
-        showTooltips={true}
-      />
-
-      {/* Vertical panel - top left - PILL shape */}
-      <FloatingControlPanel
-        size="md"
-        position="top-center"
         orientation="vertical"
         shape="pill"
         actions={settingsActions}
