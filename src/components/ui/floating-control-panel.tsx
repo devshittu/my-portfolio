@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { FiX, FiChevronUp, FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ControlAction, ActionVariant } from '@/types/fcp';
 
@@ -107,14 +107,17 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
     return isCollapsed ? <FiChevronRight /> : <FiChevronLeft />;
   };
 
-  // Animation variants
-  const containerVariants = {
-    initial: { scale: 0.8, opacity: 0 },
+  // Animation variants with proper TypeScript types
+  const containerVariants: Variants = {
+    initial: {
+      scale: 0.8,
+      opacity: 0,
+    },
     animate: {
       scale: 1,
       opacity: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 260,
         damping: 20,
       },
@@ -122,20 +125,23 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
     hover: {
       scale: 1.02,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 400,
         damping: 10,
       },
     },
   };
 
-  const actionsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+  const actionsVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 24,
         staggerChildren: 0.05,
@@ -144,17 +150,22 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
     exit: {
       opacity: 0,
       scale: 0.8,
-      transition: { duration: 0.2 },
+      transition: {
+        duration: 0.2,
+      },
     },
   };
 
-  const actionItemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+  const actionItemVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 24,
       },
@@ -295,7 +306,7 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
               <motion.button
                 whileHover={{ scale: 1.05, rotate: 180 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                transition={{ type: 'spring' as const, stiffness: 260, damping: 20 }}
                 onClick={() => setIsCollapsed(!isCollapsed)}
                 className={`
                   ${config.button}
