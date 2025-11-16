@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiChevronUp, FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { ControlAction } from '@/types/fcp';
+import { ControlAction, ActionVariant } from '@/types/fcp';
 
 type Size = 'sm' | 'md' | 'lg' | 'xl';
 type Position =
@@ -31,22 +31,26 @@ interface FloatingControlPanelProps {
   className?: string;
 }
 
-const sizeConfig = {
+const sizeConfig: Record<Size, { container: string; button: string; separator: string }> = {
   sm: {
     container: 'p-2 gap-2',
     button: 'w-8 h-8 text-sm',
+    separator: 'h-6',
   },
   md: {
     container: 'p-3 gap-3',
     button: 'w-10 h-10 text-base',
+    separator: 'h-8',
   },
   lg: {
     container: 'p-4 gap-4',
     button: 'w-12 h-12 text-lg',
+    separator: 'h-10',
   },
   xl: {
     container: 'p-5 gap-5',
     button: 'w-14 h-14 text-xl',
+    separator: 'h-12',
   },
 };
 
@@ -61,12 +65,12 @@ const positionConfig: Record<Position, string> = {
   'bottom-right': 'bottom-4 right-4 sm:bottom-6 sm:right-6',
 };
 
-const shapeConfig = {
+const shapeConfig: Record<Shape, string> = {
   rounded: 'rounded-2xl',
   pill: 'rounded-full',
 };
 
-const variantClasses = {
+const variantClasses: Record<ActionVariant, string> = {
   default:
     'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700',
   primary: 'bg-cyan-600 dark:bg-cyan-500 text-white hover:bg-cyan-700 dark:hover:bg-cyan-600',
@@ -186,81 +190,84 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
               animate="visible"
               exit="exit"
               className={`
-                flex
+                flex items-center
                 ${orientation === 'vertical' ? 'flex-col gap-2' : 'flex-row gap-2'}
               `}
             >
-              {actions.map((action) => (
-                <motion.div
-                  key={action.id}
-                  variants={actionItemVariants}
-                  className="relative group"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={action.onClick}
-                    disabled={action.disabled}
-                    className={`
-                      ${config.button}
-                      ${shapeClass}
-                      flex items-center justify-center
-                      transition-all duration-200
-                      disabled:opacity-50 disabled:cursor-not-allowed
-                      focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2
-                      dark:focus:ring-offset-slate-900
-                      ${variantClasses[action.variant || 'default']}
-                    `}
-                    aria-label={action.label}
+              {actions.map((action) => {
+                const actionVariant = (action.variant || 'default') as ActionVariant;
+                return (
+                  <motion.div
+                    key={action.id}
+                    variants={actionItemVariants}
+                    className="relative group"
                   >
-                    {action.icon}
-                  </motion.button>
-
-                  {/* Tooltip */}
-                  {showTooltips && (
-                    <div
+                    <motion.button
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={action.onClick}
+                      disabled={action.disabled}
                       className={`
-                        absolute z-50 px-3 py-1.5 text-xs font-medium
-                        bg-slate-900 dark:bg-slate-700 text-white
-                        rounded-lg shadow-lg
-                        opacity-0 group-hover:opacity-100
-                        transition-opacity duration-200
-                        pointer-events-none whitespace-nowrap
-                        ${
-                          orientation === 'vertical'
-                            ? position.includes('right')
-                              ? 'right-full mr-2 top-1/2 -translate-y-1/2'
-                              : 'left-full ml-2 top-1/2 -translate-y-1/2'
-                            : position.includes('bottom') ||
-                              position === 'left-center' ||
-                              position === 'right-center'
-                            ? 'bottom-full mb-2 left-1/2 -translate-x-1/2'
-                            : 'top-full mt-2 left-1/2 -translate-x-1/2'
-                        }
+                        ${config.button}
+                        ${shapeClass}
+                        flex items-center justify-center
+                        transition-all duration-200
+                        disabled:opacity-50 disabled:cursor-not-allowed
+                        focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2
+                        dark:focus:ring-offset-slate-900
+                        ${variantClasses[actionVariant]}
                       `}
+                      aria-label={action.label}
                     >
-                      {action.label}
+                      {action.icon}
+                    </motion.button>
+
+                    {/* Tooltip */}
+                    {showTooltips && (
                       <div
                         className={`
-                          absolute w-2 h-2 bg-slate-900 dark:bg-slate-700
-                          transform rotate-45
+                          absolute z-50 px-3 py-1.5 text-xs font-medium
+                          bg-slate-900 dark:bg-slate-700 text-white
+                          rounded-lg shadow-lg
+                          opacity-0 group-hover:opacity-100
+                          transition-opacity duration-200
+                          pointer-events-none whitespace-nowrap
                           ${
                             orientation === 'vertical'
                               ? position.includes('right')
-                                ? 'right-0 top-1/2 -translate-y-1/2 translate-x-1/2'
-                                : 'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2'
+                                ? 'right-full mr-2 top-1/2 -translate-y-1/2'
+                                : 'left-full ml-2 top-1/2 -translate-y-1/2'
                               : position.includes('bottom') ||
                                 position === 'left-center' ||
                                 position === 'right-center'
-                              ? 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'
-                              : 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'
+                              ? 'bottom-full mb-2 left-1/2 -translate-x-1/2'
+                              : 'top-full mt-2 left-1/2 -translate-x-1/2'
                           }
                         `}
-                      />
-                    </div>
-                  )}
-                </motion.div>
-              ))}
+                      >
+                        {action.label}
+                        <div
+                          className={`
+                            absolute w-2 h-2 bg-slate-900 dark:bg-slate-700
+                            transform rotate-45
+                            ${
+                              orientation === 'vertical'
+                                ? position.includes('right')
+                                  ? 'right-0 top-1/2 -translate-y-1/2 translate-x-1/2'
+                                  : 'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2'
+                                : position.includes('bottom') ||
+                                  position === 'left-center' ||
+                                  position === 'right-center'
+                                ? 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'
+                                : 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'
+                            }
+                          `}
+                        />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </motion.div>
           )}
         </AnimatePresence>
@@ -269,7 +276,7 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
         {(collapsible || closable) && (
           <div
             className={`
-              flex
+              flex items-center
               ${orientation === 'vertical' ? 'flex-col gap-2' : 'flex-row gap-2'}
               ${!isCollapsed && (orientation === 'vertical' ? 'mt-2' : 'ml-2')}
             `}
@@ -278,8 +285,8 @@ const FloatingControlPanel: React.FC<FloatingControlPanelProps> = ({
             {!isCollapsed && (
               <div
                 className={`
-                  bg-slate-300 dark:bg-slate-700
-                  ${orientation === 'vertical' ? 'w-full h-px' : 'w-px h-6'}
+                  bg-slate-300 dark:bg-slate-700 self-center
+                  ${orientation === 'vertical' ? 'w-full h-px' : `w-px ${config.separator}`}
                 `}
               />
             )}
