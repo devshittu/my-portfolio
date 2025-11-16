@@ -30,7 +30,7 @@ export default function AdvancedExample() {
   const [isFavorited, setIsFavorited] = useState(false);
 
   // Set mounted after initial render
-  useEffect(() => {
+  React.useEffect(() => {
     setMounted(true);
   }, []);
 
